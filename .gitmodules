@@ -1,0 +1,3 @@
+[submodule "external/Sudoku-Solver"]
+	path = external/Sudoku-Solver
+	url = https://github.com/coutaditya/Sudoku-Solver.git

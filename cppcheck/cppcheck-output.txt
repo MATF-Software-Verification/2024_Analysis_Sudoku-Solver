@@ -1,0 +1,5 @@
+[1m/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:17:5: [31mstyle:[39m Class 'SudokuSolver' has a constructor with 1 argument that is not explicit. [noExplicitConstructor][0m
+    SudokuSolver(QWidget *parent = nullptr);
+    ^
+[1mnofile:0:0: [31minformation:[39m Active checkers: 173/592 (use --checkers-report=<filename> to see details) [checkersReport][0m
+

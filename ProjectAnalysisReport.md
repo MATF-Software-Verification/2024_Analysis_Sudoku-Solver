@@ -48,3 +48,63 @@ Na slici ispod prikazan je HTML izveštaj alata `lcov`.
 
 Visoka pokrivenost linija pokazuje da su testovi izvršili najveći deo algoritamskog koda. Funkcijska pokrivenost je niža jer nije pokrivena UI funkcija `solveSudoku()`, koja predstavlja Qt slot povezan sa korisničkim interfejsom.
 
+## Statička analiza
+
+Za statičku analizu C++ koda korišćen je alat **cppcheck**. Analizitrani su ručno pisani fajlovi projekta:
+
+```text
+external/Sudoku-Solver/main.cpp
+external/Sudoku-Solver/sudokusolver.cpp
+external/Sudoku-Solver/sudokusolver.h
+```
+
+Automatski generisani Qt fajlovi, kao što su `moc_sudokusolver.cpp` i `ui_sudokusolver.h`, nisu ukljuceni u analizu jer ne predstavljaju izvorni kod projekta.
+
+Analiza je pokrenuta sledećom skriptom:
+
+```bash
+#!/usr/bin/env bash
+
+set -xe
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+cppcheck \
+  --quiet \
+  --inconclusive \
+  --enable=all \
+  --suppress=missingIncludeSystem \
+  -DQ_OBJECT= \
+  -Dslots= \
+  -Dsignals= \
+  --output-file="$SCRIPT_DIR/cppcheck-output.txt" \
+  "$ROOT_DIR/external/Sudoku-Solver/main.cpp" \
+  "$ROOT_DIR/external/Sudoku-Solver/sudokusolver.cpp" \
+  "$ROOT_DIR/external/Sudoku-Solver/sudokusolver.h"
+
+echo "finished cppcheck"
+```
+
+Zbog korišćenja Qt makroa, dodate su definicje `Q_OBJECT`, `slots` i `signals`, kako bi `cppcheck` mogao da analizira bez grešaka.
+
+Dodatne opcije koje su korišćene prilikom analize:
+
+- *--inconclusive* : alat prijavljuje i neodlučne greške (greške koje nije mogao da kategorizuje kao greške ili upozorenja i bez ove opcije ih ne bi uključio u izveštaj)
+- *--enable=all* : alat uključuje sve dostupne provere koje može da izvrši
+- *--suppress=missingIncludeSystem* : alat ignoriše greske koje se dobijaju iz header-a (kako bi se izbegao problem sa proveravanjem eksternih biblioteka koje se uključuju u header fajlovima)
+
+## Rezultat analize
+
+Cppcheck je prijavio sledeće upozorenje:
+
+```text
+../external/Sudoku-Solver/sudokusolver.h:17:5:
+style: Class 'SudokuSolver' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    SudokuSolver(QWidget *parent = nullptr);
+    ^
+```
+
+Alat predlaže da konstruktor bude označen ključnom rečju `explicit`.
+
+Ovo upozorenje ne predstavlja funckionalnu grešku u progeamu, već preporuku za bolji C++ stil.

@@ -13,3 +13,6 @@ SOURCES += \
 
 HEADERS += \
     ../../external/Sudoku-Solver/sudokusolver.h
+
+QMAKE_CXXFLAGS += --coverage -O0 -g
+QMAKE_LFLAGS += --coverage

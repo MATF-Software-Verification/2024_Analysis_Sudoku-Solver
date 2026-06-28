@@ -16,7 +16,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/unit_tests/build"'
 CFLAGS        = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe --coverage -O0 -g -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../tests -I. -I../../external/Sudoku-Solver -I/home/matic/Qt/6.2.2/gcc_64/include -I/home/matic/Qt/6.2.2/gcc_64/include/QtWidgets -I/home/matic/Qt/6.2.2/gcc_64/include/QtGui -I/home/matic/Qt/6.2.2/gcc_64/include/QtTest -I/home/matic/Qt/6.2.2/gcc_64/include/QtCore -I. -I/home/matic/Qt/6.2.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/matic/Qt/6.2.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
@@ -39,7 +39,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = SolverUnitTests1.0.0
 DISTDIR = /home/matic/Documents/Master\ 2.\ godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/unit_tests/build/.tmp/SolverUnitTests1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/matic/Qt/6.2.2/gcc_64/lib -Wl,-rpath-link,/home/matic/Qt/6.2.2/gcc_64/lib
+LFLAGS        = --coverage -Wl,-O1 -Wl,-rpath,/home/matic/Qt/6.2.2/gcc_64/lib -Wl,-rpath-link,/home/matic/Qt/6.2.2/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/matic/Qt/6.2.2/gcc_64/lib/libQt6Widgets.so /home/matic/Qt/6.2.2/gcc_64/lib/libQt6Gui.so /home/matic/Qt/6.2.2/gcc_64/lib/libQt6Test.so /home/matic/Qt/6.2.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
@@ -877,7 +877,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /home/matic/Qt/6.2.2/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /home/matic/Qt/6.2.2/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe --coverage -O0 -g -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /home/matic/Qt/6.2.2/gcc_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_sudokusolver.cpp
 compiler_moc_header_clean:

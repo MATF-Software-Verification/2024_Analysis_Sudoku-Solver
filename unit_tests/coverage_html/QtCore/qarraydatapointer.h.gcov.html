@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.filtered.info - QtCore/qarraydatapointer.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">QtCore</a> - qarraydatapointer.h<span style="font-size: 80%;"> (source / <a href="qarraydatapointer.h.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.filtered.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryMed">77.8&nbsp;%</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">7</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2026-06-28 21:15:13</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : /****************************************************************************</span>
+<span id="L2"><span class="lineNum">       2</span>              : **</span>
+<span id="L3"><span class="lineNum">       3</span>              : ** Copyright (C) 2020 The Qt Company Ltd.</span>
+<span id="L4"><span class="lineNum">       4</span>              : ** Contact: https://www.qt.io/licensing/</span>
+<span id="L5"><span class="lineNum">       5</span>              : **</span>
+<span id="L6"><span class="lineNum">       6</span>              : ** This file is part of the QtCore module of the Qt Toolkit.</span>
+<span id="L7"><span class="lineNum">       7</span>              : **</span>
+<span id="L8"><span class="lineNum">       8</span>              : ** $QT_BEGIN_LICENSE:LGPL$</span>
+<span id="L9"><span class="lineNum">       9</span>              : ** Commercial License Usage</span>
+<span id="L10"><span class="lineNum">      10</span>              : ** Licensees holding valid commercial Qt licenses may use this file in</span>
+<span id="L11"><span class="lineNum">      11</span>              : ** accordance with the commercial license agreement provided with the</span>
+<span id="L12"><span class="lineNum">      12</span>              : ** Software or, alternatively, in accordance with the terms contained in</span>
+<span id="L13"><span class="lineNum">      13</span>              : ** a written agreement between you and The Qt Company. For licensing terms</span>
+<span id="L14"><span class="lineNum">      14</span>              : ** and conditions see https://www.qt.io/terms-conditions. For further</span>
+<span id="L15"><span class="lineNum">      15</span>              : ** information use the contact form at https://www.qt.io/contact-us.</span>
+<span id="L16"><span class="lineNum">      16</span>              : **</span>
+<span id="L17"><span class="lineNum">      17</span>              : ** GNU Lesser General Public License Usage</span>
+<span id="L18"><span class="lineNum">      18</span>              : ** Alternatively, this file may be used under the terms of the GNU Lesser</span>
+<span id="L19"><span class="lineNum">      19</span>              : ** General Public License version 3 as published by the Free Software</span>
+<span id="L20"><span class="lineNum">      20</span>              : ** Foundation and appearing in the file LICENSE.LGPL3 included in the</span>
+<span id="L21"><span class="lineNum">      21</span>              : ** packaging of this file. Please review the following information to</span>
+<span id="L22"><span class="lineNum">      22</span>              : ** ensure the GNU Lesser General Public License version 3 requirements</span>
+<span id="L23"><span class="lineNum">      23</span>              : ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.</span>
+<span id="L24"><span class="lineNum">      24</span>              : **</span>
+<span id="L25"><span class="lineNum">      25</span>              : ** GNU General Public License Usage</span>
+<span id="L26"><span class="lineNum">      26</span>              : ** Alternatively, this file may be used under the terms of the GNU</span>
+<span id="L27"><span class="lineNum">      27</span>              : ** General Public License version 2.0 or (at your option) the GNU General</span>
+<span id="L28"><span class="lineNum">      28</span>              : ** Public license version 3 or any later version approved by the KDE Free</span>
+<span id="L29"><span class="lineNum">      29</span>              : ** Qt Foundation. The licenses are as published by the Free Software</span>
+<span id="L30"><span class="lineNum">      30</span>              : ** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3</span>
+<span id="L31"><span class="lineNum">      31</span>              : ** included in the packaging of this file. Please review the following</span>
+<span id="L32"><span class="lineNum">      32</span>              : ** information to ensure the GNU General Public License requirements will</span>
+<span id="L33"><span class="lineNum">      33</span>              : ** be met: https://www.gnu.org/licenses/gpl-2.0.html and</span>
+<span id="L34"><span class="lineNum">      34</span>              : ** https://www.gnu.org/licenses/gpl-3.0.html.</span>
+<span id="L35"><span class="lineNum">      35</span>              : **</span>
+<span id="L36"><span class="lineNum">      36</span>              : ** $QT_END_LICENSE$</span>
+<span id="L37"><span class="lineNum">      37</span>              : **</span>
+<span id="L38"><span class="lineNum">      38</span>              : ****************************************************************************/</span>
+<span id="L39"><span class="lineNum">      39</span>              : </span>
+<span id="L40"><span class="lineNum">      40</span>              : #ifndef QARRAYDATAPOINTER_H</span>
+<span id="L41"><span class="lineNum">      41</span>              : #define QARRAYDATAPOINTER_H</span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span>              : #include &lt;QtCore/qarraydataops.h&gt;</span>
+<span id="L44"><span class="lineNum">      44</span>              : #include &lt;QtCore/qcontainertools_impl.h&gt;</span>
+<span id="L45"><span class="lineNum">      45</span>              : </span>
+<span id="L46"><span class="lineNum">      46</span>              : QT_BEGIN_NAMESPACE</span>
+<span id="L47"><span class="lineNum">      47</span>              : </span>
+<span id="L48"><span class="lineNum">      48</span>              : template &lt;class T&gt;</span>
+<span id="L49"><span class="lineNum">      49</span>              : struct QArrayDataPointer</span>
+<span id="L50"><span class="lineNum">      50</span>              : {</span>
+<span id="L51"><span class="lineNum">      51</span>              : private:</span>
+<span id="L52"><span class="lineNum">      52</span>              :     typedef QTypedArrayData&lt;T&gt; Data;</span>
+<span id="L53"><span class="lineNum">      53</span>              :     typedef QArrayDataOps&lt;T&gt; DataOps;</span>
+<span id="L54"><span class="lineNum">      54</span>              : </span>
+<span id="L55"><span class="lineNum">      55</span>              : public:</span>
+<span id="L56"><span class="lineNum">      56</span>              :     enum {</span>
+<span id="L57"><span class="lineNum">      57</span>              :         pass_parameter_by_value =</span>
+<span id="L58"><span class="lineNum">      58</span>              :                 std::is_arithmetic&lt;T&gt;::value || std::is_pointer&lt;T&gt;::value || std::is_enum&lt;T&gt;::value</span>
+<span id="L59"><span class="lineNum">      59</span>              :     };</span>
+<span id="L60"><span class="lineNum">      60</span>              : </span>
+<span id="L61"><span class="lineNum">      61</span>              :     typedef typename std::conditional&lt;pass_parameter_by_value, T, const T &amp;&gt;::type parameter_type;</span>
+<span id="L62"><span class="lineNum">      62</span>              : </span>
+<span id="L63"><span class="lineNum">      63</span>              :     constexpr QArrayDataPointer() noexcept</span>
+<span id="L64"><span class="lineNum">      64</span>              :         : d(nullptr), ptr(nullptr), size(0)</span>
+<span id="L65"><span class="lineNum">      65</span>              :     {</span>
+<span id="L66"><span class="lineNum">      66</span>              :     }</span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              :     QArrayDataPointer(const QArrayDataPointer &amp;other) noexcept</span>
+<span id="L69"><span class="lineNum">      69</span>              :         : d(other.d), ptr(other.ptr), size(other.size)</span>
+<span id="L70"><span class="lineNum">      70</span>              :     {</span>
+<span id="L71"><span class="lineNum">      71</span>              :         ref();</span>
+<span id="L72"><span class="lineNum">      72</span>              :     }</span>
+<span id="L73"><span class="lineNum">      73</span>              : </span>
+<span id="L74"><span class="lineNum">      74</span>              :     constexpr QArrayDataPointer(Data *header, T *adata, qsizetype n = 0) noexcept</span>
+<span id="L75"><span class="lineNum">      75</span>              :         : d(header), ptr(adata), size(n)</span>
+<span id="L76"><span class="lineNum">      76</span>              :     {</span>
+<span id="L77"><span class="lineNum">      77</span>              :     }</span>
+<span id="L78"><span class="lineNum">      78</span>              : </span>
+<span id="L79"><span class="lineNum">      79</span>              :     explicit QArrayDataPointer(QPair&lt;QTypedArrayData&lt;T&gt; *, T *&gt; adata, qsizetype n = 0) noexcept</span>
+<span id="L80"><span class="lineNum">      80</span>              :         : d(adata.first), ptr(adata.second), size(n)</span>
+<span id="L81"><span class="lineNum">      81</span>              :     {</span>
+<span id="L82"><span class="lineNum">      82</span>              :     }</span>
+<span id="L83"><span class="lineNum">      83</span>              : </span>
+<span id="L84"><span class="lineNum">      84</span>              :     static QArrayDataPointer fromRawData(const T *rawData, qsizetype length) noexcept</span>
+<span id="L85"><span class="lineNum">      85</span>              :     {</span>
+<span id="L86"><span class="lineNum">      86</span>              :         Q_ASSERT(rawData || !length);</span>
+<span id="L87"><span class="lineNum">      87</span>              :         return { nullptr, const_cast&lt;T *&gt;(rawData), length };</span>
+<span id="L88"><span class="lineNum">      88</span>              :     }</span>
+<span id="L89"><span class="lineNum">      89</span>              : </span>
+<span id="L90"><span class="lineNum">      90</span>              :     QArrayDataPointer &amp;operator=(const QArrayDataPointer &amp;other) noexcept</span>
+<span id="L91"><span class="lineNum">      91</span>              :     {</span>
+<span id="L92"><span class="lineNum">      92</span>              :         QArrayDataPointer tmp(other);</span>
+<span id="L93"><span class="lineNum">      93</span>              :         this-&gt;swap(tmp);</span>
+<span id="L94"><span class="lineNum">      94</span>              :         return *this;</span>
+<span id="L95"><span class="lineNum">      95</span>              :     }</span>
+<span id="L96"><span class="lineNum">      96</span>              : </span>
+<span id="L97"><span class="lineNum">      97</span>              :     QArrayDataPointer(QArrayDataPointer &amp;&amp;other) noexcept</span>
+<span id="L98"><span class="lineNum">      98</span>              :         : d(other.d), ptr(other.ptr), size(other.size)</span>
+<span id="L99"><span class="lineNum">      99</span>              :     {</span>
+<span id="L100"><span class="lineNum">     100</span>              :         other.d = nullptr;</span>
+<span id="L101"><span class="lineNum">     101</span>              :         other.ptr = nullptr;</span>
+<span id="L102"><span class="lineNum">     102</span>              :         other.size = 0;</span>
+<span id="L103"><span class="lineNum">     103</span>              :     }</span>
+<span id="L104"><span class="lineNum">     104</span>              : </span>
+<span id="L105"><span class="lineNum">     105</span>              :     QT_MOVE_ASSIGNMENT_OPERATOR_IMPL_VIA_MOVE_AND_SWAP(QArrayDataPointer)</span>
+<span id="L106"><span class="lineNum">     106</span>              : </span>
+<span id="L107"><span class="lineNum">     107</span>              :     DataOps &amp;operator*() noexcept</span>
+<span id="L108"><span class="lineNum">     108</span>              :     {</span>
+<span id="L109"><span class="lineNum">     109</span>              :         return *static_cast&lt;DataOps *&gt;(this);</span>
+<span id="L110"><span class="lineNum">     110</span>              :     }</span>
+<span id="L111"><span class="lineNum">     111</span>              : </span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC tlaBgGNC">           8 :     DataOps *operator-&gt;() noexcept</span></span>
+<span id="L113"><span class="lineNum">     113</span>              :     {</span>
+<span id="L114"><span class="lineNum">     114</span>              :         return static_cast&lt;DataOps *&gt;(this);</span>
+<span id="L115"><span class="lineNum">     115</span>              :     }</span>
+<span id="L116"><span class="lineNum">     116</span>              : </span>
+<span id="L117"><span class="lineNum">     117</span>              :     const DataOps &amp;operator*() const noexcept</span>
+<span id="L118"><span class="lineNum">     118</span>              :     {</span>
+<span id="L119"><span class="lineNum">     119</span>              :         return *static_cast&lt;const DataOps *&gt;(this);</span>
+<span id="L120"><span class="lineNum">     120</span>              :     }</span>
+<span id="L121"><span class="lineNum">     121</span>              : </span>
+<span id="L122"><span class="lineNum">     122</span>              :     const DataOps *operator-&gt;() const noexcept</span>
+<span id="L123"><span class="lineNum">     123</span>              :     {</span>
+<span id="L124"><span class="lineNum">     124</span>              :         return static_cast&lt;const DataOps *&gt;(this);</span>
+<span id="L125"><span class="lineNum">     125</span>              :     }</span>
+<span id="L126"><span class="lineNum">     126</span>              : </span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">         744 :     ~QArrayDataPointer()</span></span>
+<span id="L128"><span class="lineNum">     128</span>              :     {</span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">         744 :         if (!deref()) {</span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">           8 :             (*this)-&gt;destroyAll();</span></span>
+<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC">           8 :             Data::deallocate(d);</span></span>
+<span id="L132"><span class="lineNum">     132</span>              :         }</span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">         744 :     }</span></span>
+<span id="L134"><span class="lineNum">     134</span>              : </span>
+<span id="L135"><span class="lineNum">     135</span> <span class="tlaUNC tlaBgUNC">           0 :     bool isNull() const noexcept</span></span>
+<span id="L136"><span class="lineNum">     136</span>              :     {</span>
+<span id="L137"><span class="lineNum">     137</span> <span class="tlaUNC">           0 :         return !ptr;</span></span>
+<span id="L138"><span class="lineNum">     138</span>              :     }</span>
+<span id="L139"><span class="lineNum">     139</span>              : </span>
+<span id="L140"><span class="lineNum">     140</span>              :     T *data() noexcept { return ptr; }</span>
+<span id="L141"><span class="lineNum">     141</span>              :     const T *data() const noexcept { return ptr; }</span>
+<span id="L142"><span class="lineNum">     142</span>              : </span>
+<span id="L143"><span class="lineNum">     143</span>              :     T *begin() noexcept { return data(); }</span>
+<span id="L144"><span class="lineNum">     144</span>              :     T *end() noexcept { return data() + size; }</span>
+<span id="L145"><span class="lineNum">     145</span>              :     const T *begin() const noexcept { return data(); }</span>
+<span id="L146"><span class="lineNum">     146</span>              :     const T *end() const noexcept { return data() + size; }</span>
+<span id="L147"><span class="lineNum">     147</span>              :     const T *constBegin() const noexcept { return data(); }</span>
+<span id="L148"><span class="lineNum">     148</span>              :     const T *constEnd() const noexcept { return data() + size; }</span>
+<span id="L149"><span class="lineNum">     149</span>              : </span>
+<span id="L150"><span class="lineNum">     150</span>              :     void swap(QArrayDataPointer &amp;other) noexcept</span>
+<span id="L151"><span class="lineNum">     151</span>              :     {</span>
+<span id="L152"><span class="lineNum">     152</span>              :         qSwap(d, other.d);</span>
+<span id="L153"><span class="lineNum">     153</span>              :         qSwap(ptr, other.ptr);</span>
+<span id="L154"><span class="lineNum">     154</span>              :         qSwap(size, other.size);</span>
+<span id="L155"><span class="lineNum">     155</span>              :     }</span>
+<span id="L156"><span class="lineNum">     156</span>              : </span>
+<span id="L157"><span class="lineNum">     157</span>              :     void clear() noexcept(std::is_nothrow_destructible&lt;T&gt;::value)</span>
+<span id="L158"><span class="lineNum">     158</span>              :     {</span>
+<span id="L159"><span class="lineNum">     159</span>              :         QArrayDataPointer tmp;</span>
+<span id="L160"><span class="lineNum">     160</span>              :         swap(tmp);</span>
+<span id="L161"><span class="lineNum">     161</span>              :     }</span>
+<span id="L162"><span class="lineNum">     162</span>              : </span>
+<span id="L163"><span class="lineNum">     163</span>              :     void detach(QArrayDataPointer *old = nullptr)</span>
+<span id="L164"><span class="lineNum">     164</span>              :     {</span>
+<span id="L165"><span class="lineNum">     165</span>              :         if (needsDetach())</span>
+<span id="L166"><span class="lineNum">     166</span>              :             reallocateAndGrow(QArrayData::GrowsAtEnd, 0, old);</span>
+<span id="L167"><span class="lineNum">     167</span>              :     }</span>
+<span id="L168"><span class="lineNum">     168</span>              : </span>
+<span id="L169"><span class="lineNum">     169</span>              :     /*! \internal</span>
+<span id="L170"><span class="lineNum">     170</span>              : </span>
+<span id="L171"><span class="lineNum">     171</span>              :         Detaches this (optionally) and grows to accommodate the free space for</span>
+<span id="L172"><span class="lineNum">     172</span>              :         \a n elements at the required side. The side is determined from \a pos.</span>
+<span id="L173"><span class="lineNum">     173</span>              : </span>
+<span id="L174"><span class="lineNum">     174</span>              :         \a data pointer can be provided when the caller knows that \a data</span>
+<span id="L175"><span class="lineNum">     175</span>              :         points into range [this-&gt;begin(), this-&gt;end()). In case it is, *data</span>
+<span id="L176"><span class="lineNum">     176</span>              :         would be updated so that it continues to point to the element it was</span>
+<span id="L177"><span class="lineNum">     177</span>              :         pointing to before the data move. if \a data does not point into range,</span>
+<span id="L178"><span class="lineNum">     178</span>              :         one can/should pass \c nullptr.</span>
+<span id="L179"><span class="lineNum">     179</span>              : </span>
+<span id="L180"><span class="lineNum">     180</span>              :         Similarly to \a data, \a old, pointer to a default-constructed QADP, can</span>
+<span id="L181"><span class="lineNum">     181</span>              :         be provided when the caller expects to e.g. copy the data from this to</span>
+<span id="L182"><span class="lineNum">     182</span>              :         itself:</span>
+<span id="L183"><span class="lineNum">     183</span>              :         \code</span>
+<span id="L184"><span class="lineNum">     184</span>              :         QList&lt;T&gt; list(5);</span>
+<span id="L185"><span class="lineNum">     185</span>              :         qsizetype pos = getArbitraryPos();</span>
+<span id="L186"><span class="lineNum">     186</span>              :         list.insert(pos, list.begin(), list.end());</span>
+<span id="L187"><span class="lineNum">     187</span>              :         \endcode</span>
+<span id="L188"><span class="lineNum">     188</span>              : </span>
+<span id="L189"><span class="lineNum">     189</span>              :         The default rule would be: \a data and \a old must either both be valid</span>
+<span id="L190"><span class="lineNum">     190</span>              :         pointers, or both equal to \c nullptr.</span>
+<span id="L191"><span class="lineNum">     191</span>              :     */</span>
+<span id="L192"><span class="lineNum">     192</span>              :     void detachAndGrow(QArrayData::GrowthPosition where, qsizetype n, const T **data,</span>
+<span id="L193"><span class="lineNum">     193</span>              :                        QArrayDataPointer *old)</span>
+<span id="L194"><span class="lineNum">     194</span>              :     {</span>
+<span id="L195"><span class="lineNum">     195</span>              :         const bool detach = needsDetach();</span>
+<span id="L196"><span class="lineNum">     196</span>              :         bool readjusted = false;</span>
+<span id="L197"><span class="lineNum">     197</span>              :         if (!detach) {</span>
+<span id="L198"><span class="lineNum">     198</span>              :             if (!n || (where == QArrayData::GrowsAtBeginning &amp;&amp; freeSpaceAtBegin() &gt;= n)</span>
+<span id="L199"><span class="lineNum">     199</span>              :                 || (where == QArrayData::GrowsAtEnd &amp;&amp; freeSpaceAtEnd() &gt;= n))</span>
+<span id="L200"><span class="lineNum">     200</span>              :                 return;</span>
+<span id="L201"><span class="lineNum">     201</span>              :             readjusted = tryReadjustFreeSpace(where, n, data);</span>
+<span id="L202"><span class="lineNum">     202</span>              :             Q_ASSERT(!readjusted</span>
+<span id="L203"><span class="lineNum">     203</span>              :                      || (where == QArrayData::GrowsAtBeginning &amp;&amp; freeSpaceAtBegin() &gt;= n)</span>
+<span id="L204"><span class="lineNum">     204</span>              :                      || (where == QArrayData::GrowsAtEnd &amp;&amp; freeSpaceAtEnd() &gt;= n));</span>
+<span id="L205"><span class="lineNum">     205</span>              :         }</span>
+<span id="L206"><span class="lineNum">     206</span>              : </span>
+<span id="L207"><span class="lineNum">     207</span>              :         if (!readjusted)</span>
+<span id="L208"><span class="lineNum">     208</span>              :             reallocateAndGrow(where, n, old);</span>
+<span id="L209"><span class="lineNum">     209</span>              :     }</span>
+<span id="L210"><span class="lineNum">     210</span>              : </span>
+<span id="L211"><span class="lineNum">     211</span>              :     /*! \internal</span>
+<span id="L212"><span class="lineNum">     212</span>              : </span>
+<span id="L213"><span class="lineNum">     213</span>              :         Reallocates to accommodate the free space for \a n elements at the</span>
+<span id="L214"><span class="lineNum">     214</span>              :         required side. The side is determined from \a pos. Might also shrink</span>
+<span id="L215"><span class="lineNum">     215</span>              :         when n &lt; 0.</span>
+<span id="L216"><span class="lineNum">     216</span>              :     */</span>
+<span id="L217"><span class="lineNum">     217</span>              :     Q_NEVER_INLINE void reallocateAndGrow(QArrayData::GrowthPosition where, qsizetype n,</span>
+<span id="L218"><span class="lineNum">     218</span>              :                                           QArrayDataPointer *old = nullptr)</span>
+<span id="L219"><span class="lineNum">     219</span>              :     {</span>
+<span id="L220"><span class="lineNum">     220</span>              :         if constexpr (QTypeInfo&lt;T&gt;::isRelocatable &amp;&amp; alignof(T) &lt;= alignof(std::max_align_t)) {</span>
+<span id="L221"><span class="lineNum">     221</span>              :             if (where == QArrayData::GrowsAtEnd &amp;&amp; !old &amp;&amp; !needsDetach() &amp;&amp; n &gt; 0) {</span>
+<span id="L222"><span class="lineNum">     222</span>              :                 (*this)-&gt;reallocate(constAllocatedCapacity() - freeSpaceAtEnd() + n, QArrayData::Grow); // fast path</span>
+<span id="L223"><span class="lineNum">     223</span>              :                 return;</span>
+<span id="L224"><span class="lineNum">     224</span>              :             }</span>
+<span id="L225"><span class="lineNum">     225</span>              :         }</span>
+<span id="L226"><span class="lineNum">     226</span>              : </span>
+<span id="L227"><span class="lineNum">     227</span>              :         QArrayDataPointer dp(allocateGrow(*this, n, where));</span>
+<span id="L228"><span class="lineNum">     228</span>              :         if (n &gt; 0)</span>
+<span id="L229"><span class="lineNum">     229</span>              :             Q_CHECK_PTR(dp.data());</span>
+<span id="L230"><span class="lineNum">     230</span>              :         if (where == QArrayData::GrowsAtBeginning) {</span>
+<span id="L231"><span class="lineNum">     231</span>              :             Q_ASSERT(dp.freeSpaceAtBegin() &gt;= n);</span>
+<span id="L232"><span class="lineNum">     232</span>              :         } else {</span>
+<span id="L233"><span class="lineNum">     233</span>              :             Q_ASSERT(dp.freeSpaceAtEnd() &gt;= n);</span>
+<span id="L234"><span class="lineNum">     234</span>              :         }</span>
+<span id="L235"><span class="lineNum">     235</span>              :         if (size) {</span>
+<span id="L236"><span class="lineNum">     236</span>              :             qsizetype toCopy = size;</span>
+<span id="L237"><span class="lineNum">     237</span>              :             if (n &lt; 0)</span>
+<span id="L238"><span class="lineNum">     238</span>              :                 toCopy += n;</span>
+<span id="L239"><span class="lineNum">     239</span>              :             if (needsDetach() || old)</span>
+<span id="L240"><span class="lineNum">     240</span>              :                 dp-&gt;copyAppend(begin(), begin() + toCopy);</span>
+<span id="L241"><span class="lineNum">     241</span>              :             else</span>
+<span id="L242"><span class="lineNum">     242</span>              :                 dp-&gt;moveAppend(begin(), begin() + toCopy);</span>
+<span id="L243"><span class="lineNum">     243</span>              :             Q_ASSERT(dp.size == toCopy);</span>
+<span id="L244"><span class="lineNum">     244</span>              :         }</span>
+<span id="L245"><span class="lineNum">     245</span>              : </span>
+<span id="L246"><span class="lineNum">     246</span>              :         swap(dp);</span>
+<span id="L247"><span class="lineNum">     247</span>              :         if (old)</span>
+<span id="L248"><span class="lineNum">     248</span>              :             old-&gt;swap(dp);</span>
+<span id="L249"><span class="lineNum">     249</span>              :     }</span>
+<span id="L250"><span class="lineNum">     250</span>              : </span>
+<span id="L251"><span class="lineNum">     251</span>              :     /*! \internal</span>
+<span id="L252"><span class="lineNum">     252</span>              : </span>
+<span id="L253"><span class="lineNum">     253</span>              :         Attempts to relocate [begin(), end()) to accommodate the free space for</span>
+<span id="L254"><span class="lineNum">     254</span>              :         \a n elements at the required side. The side is determined from \a pos.</span>
+<span id="L255"><span class="lineNum">     255</span>              : </span>
+<span id="L256"><span class="lineNum">     256</span>              :         Returns \c true if the internal data is moved. Returns \c false when</span>
+<span id="L257"><span class="lineNum">     257</span>              :         there is no point in moving the data or the move is impossible. If \c</span>
+<span id="L258"><span class="lineNum">     258</span>              :         false is returned, it is the responsibility of the caller to figure out</span>
+<span id="L259"><span class="lineNum">     259</span>              :         how to accommodate the free space for \a n elements at \a pos.</span>
+<span id="L260"><span class="lineNum">     260</span>              : </span>
+<span id="L261"><span class="lineNum">     261</span>              :         This function expects that certain preconditions are met, e.g. the</span>
+<span id="L262"><span class="lineNum">     262</span>              :         detach is not needed, n &gt; 0 and so on. This is intentional to reduce the</span>
+<span id="L263"><span class="lineNum">     263</span>              :         number of if-statements when the caller knows that preconditions would</span>
+<span id="L264"><span class="lineNum">     264</span>              :         be satisfied.</span>
+<span id="L265"><span class="lineNum">     265</span>              : </span>
+<span id="L266"><span class="lineNum">     266</span>              :         \sa reallocateAndGrow</span>
+<span id="L267"><span class="lineNum">     267</span>              :     */</span>
+<span id="L268"><span class="lineNum">     268</span>              :     bool tryReadjustFreeSpace(QArrayData::GrowthPosition pos, qsizetype n, const T **data = nullptr)</span>
+<span id="L269"><span class="lineNum">     269</span>              :     {</span>
+<span id="L270"><span class="lineNum">     270</span>              :         Q_ASSERT(!this-&gt;needsDetach());</span>
+<span id="L271"><span class="lineNum">     271</span>              :         Q_ASSERT(n &gt; 0);</span>
+<span id="L272"><span class="lineNum">     272</span>              :         Q_ASSERT((pos == QArrayData::GrowsAtEnd &amp;&amp; this-&gt;freeSpaceAtEnd() &lt; n)</span>
+<span id="L273"><span class="lineNum">     273</span>              :                  || (pos == QArrayData::GrowsAtBeginning &amp;&amp; this-&gt;freeSpaceAtBegin() &lt; n));</span>
+<span id="L274"><span class="lineNum">     274</span>              : </span>
+<span id="L275"><span class="lineNum">     275</span>              :         const qsizetype capacity = this-&gt;constAllocatedCapacity();</span>
+<span id="L276"><span class="lineNum">     276</span>              :         const qsizetype freeAtBegin = this-&gt;freeSpaceAtBegin();</span>
+<span id="L277"><span class="lineNum">     277</span>              :         const qsizetype freeAtEnd = this-&gt;freeSpaceAtEnd();</span>
+<span id="L278"><span class="lineNum">     278</span>              : </span>
+<span id="L279"><span class="lineNum">     279</span>              :         qsizetype dataStartOffset = 0;</span>
+<span id="L280"><span class="lineNum">     280</span>              :         // algorithm:</span>
+<span id="L281"><span class="lineNum">     281</span>              :         //   a. GrowsAtEnd: relocate if space at begin AND size &lt; (capacity * 2) / 3</span>
+<span id="L282"><span class="lineNum">     282</span>              :         //      [all goes to free space at end]:</span>
+<span id="L283"><span class="lineNum">     283</span>              :         //      new free space at begin = 0</span>
+<span id="L284"><span class="lineNum">     284</span>              :         //</span>
+<span id="L285"><span class="lineNum">     285</span>              :         //   b. GrowsAtBeginning: relocate if space at end AND size &lt; capacity / 3</span>
+<span id="L286"><span class="lineNum">     286</span>              :         //      [balance the free space]:</span>
+<span id="L287"><span class="lineNum">     287</span>              :         //      new free space at begin = n + (total free space - n) / 2</span>
+<span id="L288"><span class="lineNum">     288</span>              :         if (pos == QArrayData::GrowsAtEnd &amp;&amp; freeAtBegin &gt;= n</span>
+<span id="L289"><span class="lineNum">     289</span>              :             &amp;&amp; ((3 * this-&gt;size) &lt; (2 * capacity))) {</span>
+<span id="L290"><span class="lineNum">     290</span>              :             // dataStartOffset = 0; - done in declaration</span>
+<span id="L291"><span class="lineNum">     291</span>              :         } else if (pos == QArrayData::GrowsAtBeginning &amp;&amp; freeAtEnd &gt;= n</span>
+<span id="L292"><span class="lineNum">     292</span>              :                    &amp;&amp; ((3 * this-&gt;size) &lt; capacity)) {</span>
+<span id="L293"><span class="lineNum">     293</span>              :             // total free space == capacity - size</span>
+<span id="L294"><span class="lineNum">     294</span>              :             dataStartOffset = n + qMax(0, (capacity - this-&gt;size - n) / 2);</span>
+<span id="L295"><span class="lineNum">     295</span>              :         } else {</span>
+<span id="L296"><span class="lineNum">     296</span>              :             // nothing to do otherwise</span>
+<span id="L297"><span class="lineNum">     297</span>              :             return false;</span>
+<span id="L298"><span class="lineNum">     298</span>              :         }</span>
+<span id="L299"><span class="lineNum">     299</span>              : </span>
+<span id="L300"><span class="lineNum">     300</span>              :         relocate(dataStartOffset - freeAtBegin, data);</span>
+<span id="L301"><span class="lineNum">     301</span>              : </span>
+<span id="L302"><span class="lineNum">     302</span>              :         Q_ASSERT((pos == QArrayData::GrowsAtEnd &amp;&amp; this-&gt;freeSpaceAtEnd() &gt;= n)</span>
+<span id="L303"><span class="lineNum">     303</span>              :                  || (pos == QArrayData::GrowsAtBeginning &amp;&amp; this-&gt;freeSpaceAtBegin() &gt;= n));</span>
+<span id="L304"><span class="lineNum">     304</span>              :         return true;</span>
+<span id="L305"><span class="lineNum">     305</span>              :     }</span>
+<span id="L306"><span class="lineNum">     306</span>              : </span>
+<span id="L307"><span class="lineNum">     307</span>              :     /*! \internal</span>
+<span id="L308"><span class="lineNum">     308</span>              : </span>
+<span id="L309"><span class="lineNum">     309</span>              :         Relocates [begin(), end()) by \a offset and updates \a data if it is not</span>
+<span id="L310"><span class="lineNum">     310</span>              :         \c nullptr and points into [begin(), end()).</span>
+<span id="L311"><span class="lineNum">     311</span>              :     */</span>
+<span id="L312"><span class="lineNum">     312</span>              :     void relocate(qsizetype offset, const T **data = nullptr)</span>
+<span id="L313"><span class="lineNum">     313</span>              :     {</span>
+<span id="L314"><span class="lineNum">     314</span>              :         T *res = this-&gt;ptr + offset;</span>
+<span id="L315"><span class="lineNum">     315</span>              :         QtPrivate::q_relocate_overlap_n(this-&gt;ptr, this-&gt;size, res);</span>
+<span id="L316"><span class="lineNum">     316</span>              :         // first update data pointer, then this-&gt;ptr</span>
+<span id="L317"><span class="lineNum">     317</span>              :         if (data &amp;&amp; QtPrivate::q_points_into_range(*data, this-&gt;begin(), this-&gt;end()))</span>
+<span id="L318"><span class="lineNum">     318</span>              :             *data += offset;</span>
+<span id="L319"><span class="lineNum">     319</span>              :         this-&gt;ptr = res;</span>
+<span id="L320"><span class="lineNum">     320</span>              :     }</span>
+<span id="L321"><span class="lineNum">     321</span>              : </span>
+<span id="L322"><span class="lineNum">     322</span>              :     // forwards from QArrayData</span>
+<span id="L323"><span class="lineNum">     323</span>              :     qsizetype allocatedCapacity() noexcept { return d ? d-&gt;allocatedCapacity() : 0; }</span>
+<span id="L324"><span class="lineNum">     324</span>              :     qsizetype constAllocatedCapacity() const noexcept { return d ? d-&gt;constAllocatedCapacity() : 0; }</span>
+<span id="L325"><span class="lineNum">     325</span>              :     void ref() noexcept { if (d) d-&gt;ref(); }</span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC tlaBgGNC">         744 :     bool deref() noexcept { return !d || d-&gt;deref(); }</span></span>
+<span id="L327"><span class="lineNum">     327</span>              :     bool isMutable() const noexcept { return d; }</span>
+<span id="L328"><span class="lineNum">     328</span>              :     bool isShared() const noexcept { return !d || d-&gt;isShared(); }</span>
+<span id="L329"><span class="lineNum">     329</span>              :     bool isSharedWith(const QArrayDataPointer &amp;other) const noexcept { return d &amp;&amp; d == other.d; }</span>
+<span id="L330"><span class="lineNum">     330</span>              :     bool needsDetach() const noexcept { return !d || d-&gt;needsDetach(); }</span>
+<span id="L331"><span class="lineNum">     331</span>              :     qsizetype detachCapacity(qsizetype newSize) const noexcept { return d ? d-&gt;detachCapacity(newSize) : newSize; }</span>
+<span id="L332"><span class="lineNum">     332</span>              :     const typename Data::ArrayOptions flags() const noexcept { return d ? d-&gt;flags : Data::ArrayOptionDefault; }</span>
+<span id="L333"><span class="lineNum">     333</span>              :     void setFlag(typename Data::ArrayOptions f) noexcept { Q_ASSERT(d); d-&gt;flags |= f; }</span>
+<span id="L334"><span class="lineNum">     334</span>              :     void clearFlag(typename Data::ArrayOptions f) noexcept { if (d) d-&gt;flags &amp;= ~f; }</span>
+<span id="L335"><span class="lineNum">     335</span>              : </span>
+<span id="L336"><span class="lineNum">     336</span>              :     Data *d_ptr() noexcept { return d; }</span>
+<span id="L337"><span class="lineNum">     337</span>              :     void setBegin(T *begin) noexcept { ptr = begin; }</span>
+<span id="L338"><span class="lineNum">     338</span>              : </span>
+<span id="L339"><span class="lineNum">     339</span>              :     qsizetype freeSpaceAtBegin() const noexcept</span>
+<span id="L340"><span class="lineNum">     340</span>              :     {</span>
+<span id="L341"><span class="lineNum">     341</span>              :         if (d == nullptr)</span>
+<span id="L342"><span class="lineNum">     342</span>              :             return 0;</span>
+<span id="L343"><span class="lineNum">     343</span>              :         return this-&gt;ptr - Data::dataStart(d, alignof(typename Data::AlignmentDummy));</span>
+<span id="L344"><span class="lineNum">     344</span>              :     }</span>
+<span id="L345"><span class="lineNum">     345</span>              : </span>
+<span id="L346"><span class="lineNum">     346</span>              :     qsizetype freeSpaceAtEnd() const noexcept</span>
+<span id="L347"><span class="lineNum">     347</span>              :     {</span>
+<span id="L348"><span class="lineNum">     348</span>              :         if (d == nullptr)</span>
+<span id="L349"><span class="lineNum">     349</span>              :             return 0;</span>
+<span id="L350"><span class="lineNum">     350</span>              :         return d-&gt;constAllocatedCapacity() - freeSpaceAtBegin() - this-&gt;size;</span>
+<span id="L351"><span class="lineNum">     351</span>              :     }</span>
+<span id="L352"><span class="lineNum">     352</span>              : </span>
+<span id="L353"><span class="lineNum">     353</span>              :     // allocate and grow. Ensure that at the minimum requiredSpace is available at the requested end</span>
+<span id="L354"><span class="lineNum">     354</span>              :     static QArrayDataPointer allocateGrow(const QArrayDataPointer &amp;from, qsizetype n, QArrayData::GrowthPosition position)</span>
+<span id="L355"><span class="lineNum">     355</span>              :     {</span>
+<span id="L356"><span class="lineNum">     356</span>              :         // calculate new capacity. We keep the free capacity at the side that does not have to grow</span>
+<span id="L357"><span class="lineNum">     357</span>              :         // to avoid quadratic behavior with mixed append/prepend cases</span>
+<span id="L358"><span class="lineNum">     358</span>              : </span>
+<span id="L359"><span class="lineNum">     359</span>              :         // use qMax below, because constAllocatedCapacity() can be 0 when using fromRawData()</span>
+<span id="L360"><span class="lineNum">     360</span>              :         qsizetype minimalCapacity = qMax(from.size, from.constAllocatedCapacity()) + n;</span>
+<span id="L361"><span class="lineNum">     361</span>              :         // subtract the free space at the side we want to allocate. This ensures that the total size requested is</span>
+<span id="L362"><span class="lineNum">     362</span>              :         // the existing allocation at the other side + size + n.</span>
+<span id="L363"><span class="lineNum">     363</span>              :         minimalCapacity -= (position == QArrayData::GrowsAtEnd) ? from.freeSpaceAtEnd() : from.freeSpaceAtBegin();</span>
+<span id="L364"><span class="lineNum">     364</span>              :         qsizetype capacity = from.detachCapacity(minimalCapacity);</span>
+<span id="L365"><span class="lineNum">     365</span>              :         const bool grows = capacity &gt; from.constAllocatedCapacity();</span>
+<span id="L366"><span class="lineNum">     366</span>              :         auto [header, dataPtr] = Data::allocate(capacity, grows ? QArrayData::Grow : QArrayData::KeepSize);</span>
+<span id="L367"><span class="lineNum">     367</span>              :         const bool valid = header != nullptr &amp;&amp; dataPtr != nullptr;</span>
+<span id="L368"><span class="lineNum">     368</span>              :         if (!valid)</span>
+<span id="L369"><span class="lineNum">     369</span>              :             return QArrayDataPointer(header, dataPtr);</span>
+<span id="L370"><span class="lineNum">     370</span>              : </span>
+<span id="L371"><span class="lineNum">     371</span>              :         // Idea: * when growing backwards, adjust pointer to prepare free space at the beginning</span>
+<span id="L372"><span class="lineNum">     372</span>              :         //       * when growing forward, adjust by the previous data pointer offset</span>
+<span id="L373"><span class="lineNum">     373</span>              :         dataPtr += (position == QArrayData::GrowsAtBeginning)</span>
+<span id="L374"><span class="lineNum">     374</span>              :                 ? n + qMax(0, (header-&gt;alloc - from.size - n) / 2)</span>
+<span id="L375"><span class="lineNum">     375</span>              :                 : from.freeSpaceAtBegin();</span>
+<span id="L376"><span class="lineNum">     376</span>              :         header-&gt;flags = from.flags();</span>
+<span id="L377"><span class="lineNum">     377</span>              :         return QArrayDataPointer(header, dataPtr);</span>
+<span id="L378"><span class="lineNum">     378</span>              :     }</span>
+<span id="L379"><span class="lineNum">     379</span>              : </span>
+<span id="L380"><span class="lineNum">     380</span>              :     friend bool operator==(const QArrayDataPointer &amp;lhs, const QArrayDataPointer &amp;rhs) noexcept</span>
+<span id="L381"><span class="lineNum">     381</span>              :     {</span>
+<span id="L382"><span class="lineNum">     382</span>              :         return lhs.data() == rhs.data() &amp;&amp; lhs.size == rhs.size;</span>
+<span id="L383"><span class="lineNum">     383</span>              :     }</span>
+<span id="L384"><span class="lineNum">     384</span>              : </span>
+<span id="L385"><span class="lineNum">     385</span>              :     friend bool operator!=(const QArrayDataPointer &amp;lhs, const QArrayDataPointer &amp;rhs) noexcept</span>
+<span id="L386"><span class="lineNum">     386</span>              :     {</span>
+<span id="L387"><span class="lineNum">     387</span>              :         return lhs.data() != rhs.data() || lhs.size != rhs.size;</span>
+<span id="L388"><span class="lineNum">     388</span>              :     }</span>
+<span id="L389"><span class="lineNum">     389</span>              : </span>
+<span id="L390"><span class="lineNum">     390</span>              :     Data *d;</span>
+<span id="L391"><span class="lineNum">     391</span>              :     T *ptr;</span>
+<span id="L392"><span class="lineNum">     392</span>              :     qsizetype size;</span>
+<span id="L393"><span class="lineNum">     393</span>              : };</span>
+<span id="L394"><span class="lineNum">     394</span>              : </span>
+<span id="L395"><span class="lineNum">     395</span>              : template &lt;class T&gt;</span>
+<span id="L396"><span class="lineNum">     396</span>              : inline void qSwap(QArrayDataPointer&lt;T&gt; &amp;p1, QArrayDataPointer&lt;T&gt; &amp;p2) noexcept</span>
+<span id="L397"><span class="lineNum">     397</span>              : {</span>
+<span id="L398"><span class="lineNum">     398</span>              :     p1.swap(p2);</span>
+<span id="L399"><span class="lineNum">     399</span>              : }</span>
+<span id="L400"><span class="lineNum">     400</span>              : </span>
+<span id="L401"><span class="lineNum">     401</span>              : ////////////////////////////////////////////////////////////////////////////////</span>
+<span id="L402"><span class="lineNum">     402</span>              : //  Q_ARRAY_LITERAL</span>
+<span id="L403"><span class="lineNum">     403</span>              : </span>
+<span id="L404"><span class="lineNum">     404</span>              : // The idea here is to place a (read-only) copy of header and array data in an</span>
+<span id="L405"><span class="lineNum">     405</span>              : // mmappable portion of the executable (typically, .rodata section).</span>
+<span id="L406"><span class="lineNum">     406</span>              : </span>
+<span id="L407"><span class="lineNum">     407</span>              : // Hide array inside a lambda</span>
+<span id="L408"><span class="lineNum">     408</span>              : #define Q_ARRAY_LITERAL(Type, ...) \</span>
+<span id="L409"><span class="lineNum">     409</span>              :     ([]() -&gt; QArrayDataPointer&lt;Type&gt; { \</span>
+<span id="L410"><span class="lineNum">     410</span>              :         static Type const data[] = { __VA_ARGS__ }; \</span>
+<span id="L411"><span class="lineNum">     411</span>              :         return QArrayDataPointer&lt;Type&gt;::fromRawData(const_cast&lt;Type *&gt;(data), std::size(data)); \</span>
+<span id="L412"><span class="lineNum">     412</span>              :     }())</span>
+<span id="L413"><span class="lineNum">     413</span>              : /**/</span>
+<span id="L414"><span class="lineNum">     414</span>              : </span>
+<span id="L415"><span class="lineNum">     415</span>              : QT_END_NAMESPACE</span>
+<span id="L416"><span class="lineNum">     416</span>              : </span>
+<span id="L417"><span class="lineNum">     417</span>              : #endif // include guard</span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.filtered.info - QtCore/qbasicatomic.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">QtCore</a> - qbasicatomic.h<span style="font-size: 80%;"> (source / <a href="qbasicatomic.h.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.filtered.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2026-06-28 21:15:13</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">-</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : /****************************************************************************</span>
+<span id="L2"><span class="lineNum">       2</span>              : **</span>
+<span id="L3"><span class="lineNum">       3</span>              : ** Copyright (C) 2011 Thiago Macieira &lt;thiago@kde.org&gt;</span>
+<span id="L4"><span class="lineNum">       4</span>              : ** Copyright (C) 2018 Intel Corporation.</span>
+<span id="L5"><span class="lineNum">       5</span>              : ** Contact: https://www.qt.io/licensing/</span>
+<span id="L6"><span class="lineNum">       6</span>              : **</span>
+<span id="L7"><span class="lineNum">       7</span>              : ** This file is part of the QtCore module of the Qt Toolkit.</span>
+<span id="L8"><span class="lineNum">       8</span>              : **</span>
+<span id="L9"><span class="lineNum">       9</span>              : ** $QT_BEGIN_LICENSE:LGPL$</span>
+<span id="L10"><span class="lineNum">      10</span>              : ** Commercial License Usage</span>
+<span id="L11"><span class="lineNum">      11</span>              : ** Licensees holding valid commercial Qt licenses may use this file in</span>
+<span id="L12"><span class="lineNum">      12</span>              : ** accordance with the commercial license agreement provided with the</span>
+<span id="L13"><span class="lineNum">      13</span>              : ** Software or, alternatively, in accordance with the terms contained in</span>
+<span id="L14"><span class="lineNum">      14</span>              : ** a written agreement between you and The Qt Company. For licensing terms</span>
+<span id="L15"><span class="lineNum">      15</span>              : ** and conditions see https://www.qt.io/terms-conditions. For further</span>
+<span id="L16"><span class="lineNum">      16</span>              : ** information use the contact form at https://www.qt.io/contact-us.</span>
+<span id="L17"><span class="lineNum">      17</span>              : **</span>
+<span id="L18"><span class="lineNum">      18</span>              : ** GNU Lesser General Public License Usage</span>
+<span id="L19"><span class="lineNum">      19</span>              : ** Alternatively, this file may be used under the terms of the GNU Lesser</span>
+<span id="L20"><span class="lineNum">      20</span>              : ** General Public License version 3 as published by the Free Software</span>
+<span id="L21"><span class="lineNum">      21</span>              : ** Foundation and appearing in the file LICENSE.LGPL3 included in the</span>
+<span id="L22"><span class="lineNum">      22</span>              : ** packaging of this file. Please review the following information to</span>
+<span id="L23"><span class="lineNum">      23</span>              : ** ensure the GNU Lesser General Public License version 3 requirements</span>
+<span id="L24"><span class="lineNum">      24</span>              : ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.</span>
+<span id="L25"><span class="lineNum">      25</span>              : **</span>
+<span id="L26"><span class="lineNum">      26</span>              : ** GNU General Public License Usage</span>
+<span id="L27"><span class="lineNum">      27</span>              : ** Alternatively, this file may be used under the terms of the GNU</span>
+<span id="L28"><span class="lineNum">      28</span>              : ** General Public License version 2.0 or (at your option) the GNU General</span>
+<span id="L29"><span class="lineNum">      29</span>              : ** Public license version 3 or any later version approved by the KDE Free</span>
+<span id="L30"><span class="lineNum">      30</span>              : ** Qt Foundation. The licenses are as published by the Free Software</span>
+<span id="L31"><span class="lineNum">      31</span>              : ** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3</span>
+<span id="L32"><span class="lineNum">      32</span>              : ** included in the packaging of this file. Please review the following</span>
+<span id="L33"><span class="lineNum">      33</span>              : ** information to ensure the GNU General Public License requirements will</span>
+<span id="L34"><span class="lineNum">      34</span>              : ** be met: https://www.gnu.org/licenses/gpl-2.0.html and</span>
+<span id="L35"><span class="lineNum">      35</span>              : ** https://www.gnu.org/licenses/gpl-3.0.html.</span>
+<span id="L36"><span class="lineNum">      36</span>              : **</span>
+<span id="L37"><span class="lineNum">      37</span>              : ** $QT_END_LICENSE$</span>
+<span id="L38"><span class="lineNum">      38</span>              : **</span>
+<span id="L39"><span class="lineNum">      39</span>              : ****************************************************************************/</span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              : #include &lt;QtCore/qglobal.h&gt;</span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span>              : #ifndef QBASICATOMIC_H</span>
+<span id="L44"><span class="lineNum">      44</span>              : #define QBASICATOMIC_H</span>
+<span id="L45"><span class="lineNum">      45</span>              : </span>
+<span id="L46"><span class="lineNum">      46</span>              : #if defined(QT_BOOTSTRAPPED)</span>
+<span id="L47"><span class="lineNum">      47</span>              : #  include &lt;QtCore/qatomic_bootstrap.h&gt;</span>
+<span id="L48"><span class="lineNum">      48</span>              : </span>
+<span id="L49"><span class="lineNum">      49</span>              : // If C++11 atomics are supported, use them!</span>
+<span id="L50"><span class="lineNum">      50</span>              : // Note that constexpr support is sometimes disabled in QNX or INTEGRITY builds,</span>
+<span id="L51"><span class="lineNum">      51</span>              : // but their libraries have &lt;atomic&gt;.</span>
+<span id="L52"><span class="lineNum">      52</span>              : #elif defined(Q_COMPILER_ATOMICS)</span>
+<span id="L53"><span class="lineNum">      53</span>              : #  include &lt;QtCore/qatomic_cxx11.h&gt;</span>
+<span id="L54"><span class="lineNum">      54</span>              : </span>
+<span id="L55"><span class="lineNum">      55</span>              : // No fallback</span>
+<span id="L56"><span class="lineNum">      56</span>              : #else</span>
+<span id="L57"><span class="lineNum">      57</span>              : #  error &quot;Qt requires C++11 support&quot;</span>
+<span id="L58"><span class="lineNum">      58</span>              : #endif</span>
+<span id="L59"><span class="lineNum">      59</span>              : </span>
+<span id="L60"><span class="lineNum">      60</span>              : QT_WARNING_PUSH</span>
+<span id="L61"><span class="lineNum">      61</span>              : QT_WARNING_DISABLE_MSVC(4522)</span>
+<span id="L62"><span class="lineNum">      62</span>              : </span>
+<span id="L63"><span class="lineNum">      63</span>              : QT_BEGIN_NAMESPACE</span>
+<span id="L64"><span class="lineNum">      64</span>              : </span>
+<span id="L65"><span class="lineNum">      65</span>              : #if 0</span>
+<span id="L66"><span class="lineNum">      66</span>              : // silence syncqt warnings</span>
+<span id="L67"><span class="lineNum">      67</span>              : QT_END_NAMESPACE</span>
+<span id="L68"><span class="lineNum">      68</span>              : #pragma qt_no_master_include</span>
+<span id="L69"><span class="lineNum">      69</span>              : #pragma qt_sync_stop_processing</span>
+<span id="L70"><span class="lineNum">      70</span>              : #endif</span>
+<span id="L71"><span class="lineNum">      71</span>              : </span>
+<span id="L72"><span class="lineNum">      72</span>              : // New atomics</span>
+<span id="L73"><span class="lineNum">      73</span>              : </span>
+<span id="L74"><span class="lineNum">      74</span>              : #define QT_BASIC_ATOMIC_HAS_CONSTRUCTORS</span>
+<span id="L75"><span class="lineNum">      75</span>              : </span>
+<span id="L76"><span class="lineNum">      76</span>              : template &lt;typename T&gt;</span>
+<span id="L77"><span class="lineNum">      77</span>              : class QBasicAtomicInteger</span>
+<span id="L78"><span class="lineNum">      78</span>              : {</span>
+<span id="L79"><span class="lineNum">      79</span>              : public:</span>
+<span id="L80"><span class="lineNum">      80</span>              :     typedef T Type;</span>
+<span id="L81"><span class="lineNum">      81</span>              :     typedef QAtomicOps&lt;T&gt; Ops;</span>
+<span id="L82"><span class="lineNum">      82</span>              :     // static check that this is a valid integer</span>
+<span id="L83"><span class="lineNum">      83</span>              :     static_assert(QTypeInfo&lt;T&gt;::isIntegral, &quot;template parameter is not an integral type&quot;);</span>
+<span id="L84"><span class="lineNum">      84</span>              :     static_assert(QAtomicOpsSupport&lt;sizeof(T)&gt;::IsSupported, &quot;template parameter is an integral of a size not supported on this platform&quot;);</span>
+<span id="L85"><span class="lineNum">      85</span>              : </span>
+<span id="L86"><span class="lineNum">      86</span>              :     typename Ops::Type _q_value;</span>
+<span id="L87"><span class="lineNum">      87</span>              : </span>
+<span id="L88"><span class="lineNum">      88</span>              :     // Everything below is either implemented in ../arch/qatomic_XXX.h or (as</span>
+<span id="L89"><span class="lineNum">      89</span>              :     // fallback) in qgenericatomic.h</span>
+<span id="L90"><span class="lineNum">      90</span>              :     T loadRelaxed() const noexcept { return Ops::loadRelaxed(_q_value); }</span>
+<span id="L91"><span class="lineNum">      91</span>              :     void storeRelaxed(T newValue) noexcept { Ops::storeRelaxed(_q_value, newValue); }</span>
+<span id="L92"><span class="lineNum">      92</span>              : </span>
+<span id="L93"><span class="lineNum">      93</span>              :     T loadAcquire() const noexcept { return Ops::loadAcquire(_q_value); }</span>
+<span id="L94"><span class="lineNum">      94</span>              :     void storeRelease(T newValue) noexcept { Ops::storeRelease(_q_value, newValue); }</span>
+<span id="L95"><span class="lineNum">      95</span>              :     operator T() const noexcept { return loadAcquire(); }</span>
+<span id="L96"><span class="lineNum">      96</span>              :     T operator=(T newValue) noexcept { storeRelease(newValue); return newValue; }</span>
+<span id="L97"><span class="lineNum">      97</span>              : </span>
+<span id="L98"><span class="lineNum">      98</span>              :     static constexpr bool isReferenceCountingNative() noexcept { return Ops::isReferenceCountingNative(); }</span>
+<span id="L99"><span class="lineNum">      99</span>              :     static constexpr bool isReferenceCountingWaitFree() noexcept { return Ops::isReferenceCountingWaitFree(); }</span>
+<span id="L100"><span class="lineNum">     100</span>              : </span>
+<span id="L101"><span class="lineNum">     101</span>              :     bool ref() noexcept { return Ops::ref(_q_value); }</span>
+<span id="L102"><span class="lineNum">     102</span> <span class="tlaGNC tlaBgGNC">         736 :     bool deref() noexcept { return Ops::deref(_q_value); }</span></span>
+<span id="L103"><span class="lineNum">     103</span>              : </span>
+<span id="L104"><span class="lineNum">     104</span>              :     static constexpr bool isTestAndSetNative() noexcept { return Ops::isTestAndSetNative(); }</span>
+<span id="L105"><span class="lineNum">     105</span>              :     static constexpr bool isTestAndSetWaitFree() noexcept { return Ops::isTestAndSetWaitFree(); }</span>
+<span id="L106"><span class="lineNum">     106</span>              : </span>
+<span id="L107"><span class="lineNum">     107</span>              :     bool testAndSetRelaxed(T expectedValue, T newValue) noexcept</span>
+<span id="L108"><span class="lineNum">     108</span>              :     { return Ops::testAndSetRelaxed(_q_value, expectedValue, newValue); }</span>
+<span id="L109"><span class="lineNum">     109</span>              :     bool testAndSetAcquire(T expectedValue, T newValue) noexcept</span>
+<span id="L110"><span class="lineNum">     110</span>              :     { return Ops::testAndSetAcquire(_q_value, expectedValue, newValue); }</span>
+<span id="L111"><span class="lineNum">     111</span>              :     bool testAndSetRelease(T expectedValue, T newValue) noexcept</span>
+<span id="L112"><span class="lineNum">     112</span>              :     { return Ops::testAndSetRelease(_q_value, expectedValue, newValue); }</span>
+<span id="L113"><span class="lineNum">     113</span>              :     bool testAndSetOrdered(T expectedValue, T newValue) noexcept</span>
+<span id="L114"><span class="lineNum">     114</span>              :     { return Ops::testAndSetOrdered(_q_value, expectedValue, newValue); }</span>
+<span id="L115"><span class="lineNum">     115</span>              : </span>
+<span id="L116"><span class="lineNum">     116</span>              :     bool testAndSetRelaxed(T expectedValue, T newValue, T &amp;currentValue) noexcept</span>
+<span id="L117"><span class="lineNum">     117</span>              :     { return Ops::testAndSetRelaxed(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L118"><span class="lineNum">     118</span>              :     bool testAndSetAcquire(T expectedValue, T newValue, T &amp;currentValue) noexcept</span>
+<span id="L119"><span class="lineNum">     119</span>              :     { return Ops::testAndSetAcquire(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L120"><span class="lineNum">     120</span>              :     bool testAndSetRelease(T expectedValue, T newValue, T &amp;currentValue) noexcept</span>
+<span id="L121"><span class="lineNum">     121</span>              :     { return Ops::testAndSetRelease(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L122"><span class="lineNum">     122</span>              :     bool testAndSetOrdered(T expectedValue, T newValue, T &amp;currentValue) noexcept</span>
+<span id="L123"><span class="lineNum">     123</span>              :     { return Ops::testAndSetOrdered(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L124"><span class="lineNum">     124</span>              : </span>
+<span id="L125"><span class="lineNum">     125</span>              :     static constexpr bool isFetchAndStoreNative() noexcept { return Ops::isFetchAndStoreNative(); }</span>
+<span id="L126"><span class="lineNum">     126</span>              :     static constexpr bool isFetchAndStoreWaitFree() noexcept { return Ops::isFetchAndStoreWaitFree(); }</span>
+<span id="L127"><span class="lineNum">     127</span>              : </span>
+<span id="L128"><span class="lineNum">     128</span>              :     T fetchAndStoreRelaxed(T newValue) noexcept</span>
+<span id="L129"><span class="lineNum">     129</span>              :     { return Ops::fetchAndStoreRelaxed(_q_value, newValue); }</span>
+<span id="L130"><span class="lineNum">     130</span>              :     T fetchAndStoreAcquire(T newValue) noexcept</span>
+<span id="L131"><span class="lineNum">     131</span>              :     { return Ops::fetchAndStoreAcquire(_q_value, newValue); }</span>
+<span id="L132"><span class="lineNum">     132</span>              :     T fetchAndStoreRelease(T newValue) noexcept</span>
+<span id="L133"><span class="lineNum">     133</span>              :     { return Ops::fetchAndStoreRelease(_q_value, newValue); }</span>
+<span id="L134"><span class="lineNum">     134</span>              :     T fetchAndStoreOrdered(T newValue) noexcept</span>
+<span id="L135"><span class="lineNum">     135</span>              :     { return Ops::fetchAndStoreOrdered(_q_value, newValue); }</span>
+<span id="L136"><span class="lineNum">     136</span>              : </span>
+<span id="L137"><span class="lineNum">     137</span>              :     static constexpr bool isFetchAndAddNative() noexcept { return Ops::isFetchAndAddNative(); }</span>
+<span id="L138"><span class="lineNum">     138</span>              :     static constexpr bool isFetchAndAddWaitFree() noexcept { return Ops::isFetchAndAddWaitFree(); }</span>
+<span id="L139"><span class="lineNum">     139</span>              : </span>
+<span id="L140"><span class="lineNum">     140</span>              :     T fetchAndAddRelaxed(T valueToAdd) noexcept</span>
+<span id="L141"><span class="lineNum">     141</span>              :     { return Ops::fetchAndAddRelaxed(_q_value, valueToAdd); }</span>
+<span id="L142"><span class="lineNum">     142</span>              :     T fetchAndAddAcquire(T valueToAdd) noexcept</span>
+<span id="L143"><span class="lineNum">     143</span>              :     { return Ops::fetchAndAddAcquire(_q_value, valueToAdd); }</span>
+<span id="L144"><span class="lineNum">     144</span>              :     T fetchAndAddRelease(T valueToAdd) noexcept</span>
+<span id="L145"><span class="lineNum">     145</span>              :     { return Ops::fetchAndAddRelease(_q_value, valueToAdd); }</span>
+<span id="L146"><span class="lineNum">     146</span>              :     T fetchAndAddOrdered(T valueToAdd) noexcept</span>
+<span id="L147"><span class="lineNum">     147</span>              :     { return Ops::fetchAndAddOrdered(_q_value, valueToAdd); }</span>
+<span id="L148"><span class="lineNum">     148</span>              : </span>
+<span id="L149"><span class="lineNum">     149</span>              :     T fetchAndSubRelaxed(T valueToAdd) noexcept</span>
+<span id="L150"><span class="lineNum">     150</span>              :     { return Ops::fetchAndSubRelaxed(_q_value, valueToAdd); }</span>
+<span id="L151"><span class="lineNum">     151</span>              :     T fetchAndSubAcquire(T valueToAdd) noexcept</span>
+<span id="L152"><span class="lineNum">     152</span>              :     { return Ops::fetchAndSubAcquire(_q_value, valueToAdd); }</span>
+<span id="L153"><span class="lineNum">     153</span>              :     T fetchAndSubRelease(T valueToAdd) noexcept</span>
+<span id="L154"><span class="lineNum">     154</span>              :     { return Ops::fetchAndSubRelease(_q_value, valueToAdd); }</span>
+<span id="L155"><span class="lineNum">     155</span>              :     T fetchAndSubOrdered(T valueToAdd) noexcept</span>
+<span id="L156"><span class="lineNum">     156</span>              :     { return Ops::fetchAndSubOrdered(_q_value, valueToAdd); }</span>
+<span id="L157"><span class="lineNum">     157</span>              : </span>
+<span id="L158"><span class="lineNum">     158</span>              :     T fetchAndAndRelaxed(T valueToAdd) noexcept</span>
+<span id="L159"><span class="lineNum">     159</span>              :     { return Ops::fetchAndAndRelaxed(_q_value, valueToAdd); }</span>
+<span id="L160"><span class="lineNum">     160</span>              :     T fetchAndAndAcquire(T valueToAdd) noexcept</span>
+<span id="L161"><span class="lineNum">     161</span>              :     { return Ops::fetchAndAndAcquire(_q_value, valueToAdd); }</span>
+<span id="L162"><span class="lineNum">     162</span>              :     T fetchAndAndRelease(T valueToAdd) noexcept</span>
+<span id="L163"><span class="lineNum">     163</span>              :     { return Ops::fetchAndAndRelease(_q_value, valueToAdd); }</span>
+<span id="L164"><span class="lineNum">     164</span>              :     T fetchAndAndOrdered(T valueToAdd) noexcept</span>
+<span id="L165"><span class="lineNum">     165</span>              :     { return Ops::fetchAndAndOrdered(_q_value, valueToAdd); }</span>
+<span id="L166"><span class="lineNum">     166</span>              : </span>
+<span id="L167"><span class="lineNum">     167</span>              :     T fetchAndOrRelaxed(T valueToAdd) noexcept</span>
+<span id="L168"><span class="lineNum">     168</span>              :     { return Ops::fetchAndOrRelaxed(_q_value, valueToAdd); }</span>
+<span id="L169"><span class="lineNum">     169</span>              :     T fetchAndOrAcquire(T valueToAdd) noexcept</span>
+<span id="L170"><span class="lineNum">     170</span>              :     { return Ops::fetchAndOrAcquire(_q_value, valueToAdd); }</span>
+<span id="L171"><span class="lineNum">     171</span>              :     T fetchAndOrRelease(T valueToAdd) noexcept</span>
+<span id="L172"><span class="lineNum">     172</span>              :     { return Ops::fetchAndOrRelease(_q_value, valueToAdd); }</span>
+<span id="L173"><span class="lineNum">     173</span>              :     T fetchAndOrOrdered(T valueToAdd) noexcept</span>
+<span id="L174"><span class="lineNum">     174</span>              :     { return Ops::fetchAndOrOrdered(_q_value, valueToAdd); }</span>
+<span id="L175"><span class="lineNum">     175</span>              : </span>
+<span id="L176"><span class="lineNum">     176</span>              :     T fetchAndXorRelaxed(T valueToAdd) noexcept</span>
+<span id="L177"><span class="lineNum">     177</span>              :     { return Ops::fetchAndXorRelaxed(_q_value, valueToAdd); }</span>
+<span id="L178"><span class="lineNum">     178</span>              :     T fetchAndXorAcquire(T valueToAdd) noexcept</span>
+<span id="L179"><span class="lineNum">     179</span>              :     { return Ops::fetchAndXorAcquire(_q_value, valueToAdd); }</span>
+<span id="L180"><span class="lineNum">     180</span>              :     T fetchAndXorRelease(T valueToAdd) noexcept</span>
+<span id="L181"><span class="lineNum">     181</span>              :     { return Ops::fetchAndXorRelease(_q_value, valueToAdd); }</span>
+<span id="L182"><span class="lineNum">     182</span>              :     T fetchAndXorOrdered(T valueToAdd) noexcept</span>
+<span id="L183"><span class="lineNum">     183</span>              :     { return Ops::fetchAndXorOrdered(_q_value, valueToAdd); }</span>
+<span id="L184"><span class="lineNum">     184</span>              : </span>
+<span id="L185"><span class="lineNum">     185</span>              :     T operator++() noexcept</span>
+<span id="L186"><span class="lineNum">     186</span>              :     { return fetchAndAddOrdered(1) + 1; }</span>
+<span id="L187"><span class="lineNum">     187</span>              :     T operator++(int) noexcept</span>
+<span id="L188"><span class="lineNum">     188</span>              :     { return fetchAndAddOrdered(1); }</span>
+<span id="L189"><span class="lineNum">     189</span>              :     T operator--() noexcept</span>
+<span id="L190"><span class="lineNum">     190</span>              :     { return fetchAndSubOrdered(1) - 1; }</span>
+<span id="L191"><span class="lineNum">     191</span>              :     T operator--(int) noexcept</span>
+<span id="L192"><span class="lineNum">     192</span>              :     { return fetchAndSubOrdered(1); }</span>
+<span id="L193"><span class="lineNum">     193</span>              : </span>
+<span id="L194"><span class="lineNum">     194</span>              :     T operator+=(T v) noexcept</span>
+<span id="L195"><span class="lineNum">     195</span>              :     { return fetchAndAddOrdered(v) + v; }</span>
+<span id="L196"><span class="lineNum">     196</span>              :     T operator-=(T v) noexcept</span>
+<span id="L197"><span class="lineNum">     197</span>              :     { return fetchAndSubOrdered(v) - v; }</span>
+<span id="L198"><span class="lineNum">     198</span>              :     T operator&amp;=(T v) noexcept</span>
+<span id="L199"><span class="lineNum">     199</span>              :     { return fetchAndAndOrdered(v) &amp; v; }</span>
+<span id="L200"><span class="lineNum">     200</span>              :     T operator|=(T v) noexcept</span>
+<span id="L201"><span class="lineNum">     201</span>              :     { return fetchAndOrOrdered(v) | v; }</span>
+<span id="L202"><span class="lineNum">     202</span>              :     T operator^=(T v) noexcept</span>
+<span id="L203"><span class="lineNum">     203</span>              :     { return fetchAndXorOrdered(v) ^ v; }</span>
+<span id="L204"><span class="lineNum">     204</span>              : </span>
+<span id="L205"><span class="lineNum">     205</span>              : </span>
+<span id="L206"><span class="lineNum">     206</span>              : #ifdef QT_BASIC_ATOMIC_HAS_CONSTRUCTORS</span>
+<span id="L207"><span class="lineNum">     207</span>              :     QBasicAtomicInteger() = default;</span>
+<span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">           8 :     constexpr QBasicAtomicInteger(T value) noexcept : _q_value(value) {}</span></span>
+<span id="L209"><span class="lineNum">     209</span>              :     QBasicAtomicInteger(const QBasicAtomicInteger &amp;) = delete;</span>
+<span id="L210"><span class="lineNum">     210</span>              :     QBasicAtomicInteger &amp;operator=(const QBasicAtomicInteger &amp;) = delete;</span>
+<span id="L211"><span class="lineNum">     211</span>              :     QBasicAtomicInteger &amp;operator=(const QBasicAtomicInteger &amp;) volatile = delete;</span>
+<span id="L212"><span class="lineNum">     212</span>              : #endif</span>
+<span id="L213"><span class="lineNum">     213</span>              : };</span>
+<span id="L214"><span class="lineNum">     214</span>              : typedef QBasicAtomicInteger&lt;int&gt; QBasicAtomicInt;</span>
+<span id="L215"><span class="lineNum">     215</span>              : </span>
+<span id="L216"><span class="lineNum">     216</span>              : template &lt;typename X&gt;</span>
+<span id="L217"><span class="lineNum">     217</span>              : class QBasicAtomicPointer</span>
+<span id="L218"><span class="lineNum">     218</span>              : {</span>
+<span id="L219"><span class="lineNum">     219</span>              : public:</span>
+<span id="L220"><span class="lineNum">     220</span>              :     typedef X *Type;</span>
+<span id="L221"><span class="lineNum">     221</span>              :     typedef QAtomicOps&lt;Type&gt; Ops;</span>
+<span id="L222"><span class="lineNum">     222</span>              :     typedef typename Ops::Type AtomicType;</span>
+<span id="L223"><span class="lineNum">     223</span>              : </span>
+<span id="L224"><span class="lineNum">     224</span>              :     AtomicType _q_value;</span>
+<span id="L225"><span class="lineNum">     225</span>              : </span>
+<span id="L226"><span class="lineNum">     226</span>              :     Type loadRelaxed() const noexcept { return Ops::loadRelaxed(_q_value); }</span>
+<span id="L227"><span class="lineNum">     227</span>              :     void storeRelaxed(Type newValue) noexcept { Ops::storeRelaxed(_q_value, newValue); }</span>
+<span id="L228"><span class="lineNum">     228</span>              : </span>
+<span id="L229"><span class="lineNum">     229</span>              :     operator Type() const noexcept { return loadAcquire(); }</span>
+<span id="L230"><span class="lineNum">     230</span>              :     Type operator=(Type newValue) noexcept { storeRelease(newValue); return newValue; }</span>
+<span id="L231"><span class="lineNum">     231</span>              : </span>
+<span id="L232"><span class="lineNum">     232</span>              :     // Atomic API, implemented in qatomic_XXX.h</span>
+<span id="L233"><span class="lineNum">     233</span>              :     Type loadAcquire() const noexcept { return Ops::loadAcquire(_q_value); }</span>
+<span id="L234"><span class="lineNum">     234</span>              :     void storeRelease(Type newValue) noexcept { Ops::storeRelease(_q_value, newValue); }</span>
+<span id="L235"><span class="lineNum">     235</span>              : </span>
+<span id="L236"><span class="lineNum">     236</span>              :     static constexpr bool isTestAndSetNative() noexcept { return Ops::isTestAndSetNative(); }</span>
+<span id="L237"><span class="lineNum">     237</span>              :     static constexpr bool isTestAndSetWaitFree() noexcept { return Ops::isTestAndSetWaitFree(); }</span>
+<span id="L238"><span class="lineNum">     238</span>              : </span>
+<span id="L239"><span class="lineNum">     239</span>              :     bool testAndSetRelaxed(Type expectedValue, Type newValue) noexcept</span>
+<span id="L240"><span class="lineNum">     240</span>              :     { return Ops::testAndSetRelaxed(_q_value, expectedValue, newValue); }</span>
+<span id="L241"><span class="lineNum">     241</span>              :     bool testAndSetAcquire(Type expectedValue, Type newValue) noexcept</span>
+<span id="L242"><span class="lineNum">     242</span>              :     { return Ops::testAndSetAcquire(_q_value, expectedValue, newValue); }</span>
+<span id="L243"><span class="lineNum">     243</span>              :     bool testAndSetRelease(Type expectedValue, Type newValue) noexcept</span>
+<span id="L244"><span class="lineNum">     244</span>              :     { return Ops::testAndSetRelease(_q_value, expectedValue, newValue); }</span>
+<span id="L245"><span class="lineNum">     245</span>              :     bool testAndSetOrdered(Type expectedValue, Type newValue) noexcept</span>
+<span id="L246"><span class="lineNum">     246</span>              :     { return Ops::testAndSetOrdered(_q_value, expectedValue, newValue); }</span>
+<span id="L247"><span class="lineNum">     247</span>              : </span>
+<span id="L248"><span class="lineNum">     248</span>              :     bool testAndSetRelaxed(Type expectedValue, Type newValue, Type &amp;currentValue) noexcept</span>
+<span id="L249"><span class="lineNum">     249</span>              :     { return Ops::testAndSetRelaxed(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L250"><span class="lineNum">     250</span>              :     bool testAndSetAcquire(Type expectedValue, Type newValue, Type &amp;currentValue) noexcept</span>
+<span id="L251"><span class="lineNum">     251</span>              :     { return Ops::testAndSetAcquire(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L252"><span class="lineNum">     252</span>              :     bool testAndSetRelease(Type expectedValue, Type newValue, Type &amp;currentValue) noexcept</span>
+<span id="L253"><span class="lineNum">     253</span>              :     { return Ops::testAndSetRelease(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L254"><span class="lineNum">     254</span>              :     bool testAndSetOrdered(Type expectedValue, Type newValue, Type &amp;currentValue) noexcept</span>
+<span id="L255"><span class="lineNum">     255</span>              :     { return Ops::testAndSetOrdered(_q_value, expectedValue, newValue, &amp;currentValue); }</span>
+<span id="L256"><span class="lineNum">     256</span>              : </span>
+<span id="L257"><span class="lineNum">     257</span>              :     static constexpr bool isFetchAndStoreNative() noexcept { return Ops::isFetchAndStoreNative(); }</span>
+<span id="L258"><span class="lineNum">     258</span>              :     static constexpr bool isFetchAndStoreWaitFree() noexcept { return Ops::isFetchAndStoreWaitFree(); }</span>
+<span id="L259"><span class="lineNum">     259</span>              : </span>
+<span id="L260"><span class="lineNum">     260</span>              :     Type fetchAndStoreRelaxed(Type newValue) noexcept</span>
+<span id="L261"><span class="lineNum">     261</span>              :     { return Ops::fetchAndStoreRelaxed(_q_value, newValue); }</span>
+<span id="L262"><span class="lineNum">     262</span>              :     Type fetchAndStoreAcquire(Type newValue) noexcept</span>
+<span id="L263"><span class="lineNum">     263</span>              :     { return Ops::fetchAndStoreAcquire(_q_value, newValue); }</span>
+<span id="L264"><span class="lineNum">     264</span>              :     Type fetchAndStoreRelease(Type newValue) noexcept</span>
+<span id="L265"><span class="lineNum">     265</span>              :     { return Ops::fetchAndStoreRelease(_q_value, newValue); }</span>
+<span id="L266"><span class="lineNum">     266</span>              :     Type fetchAndStoreOrdered(Type newValue) noexcept</span>
+<span id="L267"><span class="lineNum">     267</span>              :     { return Ops::fetchAndStoreOrdered(_q_value, newValue); }</span>
+<span id="L268"><span class="lineNum">     268</span>              : </span>
+<span id="L269"><span class="lineNum">     269</span>              :     static constexpr bool isFetchAndAddNative() noexcept { return Ops::isFetchAndAddNative(); }</span>
+<span id="L270"><span class="lineNum">     270</span>              :     static constexpr bool isFetchAndAddWaitFree() noexcept { return Ops::isFetchAndAddWaitFree(); }</span>
+<span id="L271"><span class="lineNum">     271</span>              : </span>
+<span id="L272"><span class="lineNum">     272</span>              :     Type fetchAndAddRelaxed(qptrdiff valueToAdd) noexcept</span>
+<span id="L273"><span class="lineNum">     273</span>              :     { return Ops::fetchAndAddRelaxed(_q_value, valueToAdd); }</span>
+<span id="L274"><span class="lineNum">     274</span>              :     Type fetchAndAddAcquire(qptrdiff valueToAdd) noexcept</span>
+<span id="L275"><span class="lineNum">     275</span>              :     { return Ops::fetchAndAddAcquire(_q_value, valueToAdd); }</span>
+<span id="L276"><span class="lineNum">     276</span>              :     Type fetchAndAddRelease(qptrdiff valueToAdd) noexcept</span>
+<span id="L277"><span class="lineNum">     277</span>              :     { return Ops::fetchAndAddRelease(_q_value, valueToAdd); }</span>
+<span id="L278"><span class="lineNum">     278</span>              :     Type fetchAndAddOrdered(qptrdiff valueToAdd) noexcept</span>
+<span id="L279"><span class="lineNum">     279</span>              :     { return Ops::fetchAndAddOrdered(_q_value, valueToAdd); }</span>
+<span id="L280"><span class="lineNum">     280</span>              : </span>
+<span id="L281"><span class="lineNum">     281</span>              :     Type fetchAndSubRelaxed(qptrdiff valueToAdd) noexcept</span>
+<span id="L282"><span class="lineNum">     282</span>              :     { return Ops::fetchAndSubRelaxed(_q_value, valueToAdd); }</span>
+<span id="L283"><span class="lineNum">     283</span>              :     Type fetchAndSubAcquire(qptrdiff valueToAdd) noexcept</span>
+<span id="L284"><span class="lineNum">     284</span>              :     { return Ops::fetchAndSubAcquire(_q_value, valueToAdd); }</span>
+<span id="L285"><span class="lineNum">     285</span>              :     Type fetchAndSubRelease(qptrdiff valueToAdd) noexcept</span>
+<span id="L286"><span class="lineNum">     286</span>              :     { return Ops::fetchAndSubRelease(_q_value, valueToAdd); }</span>
+<span id="L287"><span class="lineNum">     287</span>              :     Type fetchAndSubOrdered(qptrdiff valueToAdd) noexcept</span>
+<span id="L288"><span class="lineNum">     288</span>              :     { return Ops::fetchAndSubOrdered(_q_value, valueToAdd); }</span>
+<span id="L289"><span class="lineNum">     289</span>              : </span>
+<span id="L290"><span class="lineNum">     290</span>              :     Type operator++() noexcept</span>
+<span id="L291"><span class="lineNum">     291</span>              :     { return fetchAndAddOrdered(1) + 1; }</span>
+<span id="L292"><span class="lineNum">     292</span>              :     Type operator++(int) noexcept</span>
+<span id="L293"><span class="lineNum">     293</span>              :     { return fetchAndAddOrdered(1); }</span>
+<span id="L294"><span class="lineNum">     294</span>              :     Type operator--() noexcept</span>
+<span id="L295"><span class="lineNum">     295</span>              :     { return fetchAndSubOrdered(1) - 1; }</span>
+<span id="L296"><span class="lineNum">     296</span>              :     Type operator--(int) noexcept</span>
+<span id="L297"><span class="lineNum">     297</span>              :     { return fetchAndSubOrdered(1); }</span>
+<span id="L298"><span class="lineNum">     298</span>              :     Type operator+=(qptrdiff valueToAdd) noexcept</span>
+<span id="L299"><span class="lineNum">     299</span>              :     { return fetchAndAddOrdered(valueToAdd) + valueToAdd; }</span>
+<span id="L300"><span class="lineNum">     300</span>              :     Type operator-=(qptrdiff valueToSub) noexcept</span>
+<span id="L301"><span class="lineNum">     301</span>              :     { return fetchAndSubOrdered(valueToSub) - valueToSub; }</span>
+<span id="L302"><span class="lineNum">     302</span>              : </span>
+<span id="L303"><span class="lineNum">     303</span>              : #ifdef QT_BASIC_ATOMIC_HAS_CONSTRUCTORS</span>
+<span id="L304"><span class="lineNum">     304</span>              :     QBasicAtomicPointer() = default;</span>
+<span id="L305"><span class="lineNum">     305</span>              :     constexpr QBasicAtomicPointer(Type value) noexcept : _q_value(value) {}</span>
+<span id="L306"><span class="lineNum">     306</span>              :     QBasicAtomicPointer(const QBasicAtomicPointer &amp;) = delete;</span>
+<span id="L307"><span class="lineNum">     307</span>              :     QBasicAtomicPointer &amp;operator=(const QBasicAtomicPointer &amp;) = delete;</span>
+<span id="L308"><span class="lineNum">     308</span>              :     QBasicAtomicPointer &amp;operator=(const QBasicAtomicPointer &amp;) volatile = delete;</span>
+<span id="L309"><span class="lineNum">     309</span>              : #endif</span>
+<span id="L310"><span class="lineNum">     310</span>              : };</span>
+<span id="L311"><span class="lineNum">     311</span>              : </span>
+<span id="L312"><span class="lineNum">     312</span>              : #ifndef Q_BASIC_ATOMIC_INITIALIZER</span>
+<span id="L313"><span class="lineNum">     313</span>              : #  define Q_BASIC_ATOMIC_INITIALIZER(a) { (a) }</span>
+<span id="L314"><span class="lineNum">     314</span>              : #endif</span>
+<span id="L315"><span class="lineNum">     315</span>              : </span>
+<span id="L316"><span class="lineNum">     316</span>              : QT_END_NAMESPACE</span>
+<span id="L317"><span class="lineNum">     317</span>              : </span>
+<span id="L318"><span class="lineNum">     318</span>              : QT_WARNING_POP</span>
+<span id="L319"><span class="lineNum">     319</span>              : </span>
+<span id="L320"><span class="lineNum">     320</span>              : #endif // QBASICATOMIC_H</span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

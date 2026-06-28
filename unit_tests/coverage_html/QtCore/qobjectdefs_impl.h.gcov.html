@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.filtered.info - QtCore/qobjectdefs_impl.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">QtCore</a> - qobjectdefs_impl.h<span style="font-size: 80%;"> (source / <a href="qobjectdefs_impl.h.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.filtered.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">45.5&nbsp;%</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntry">10</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2026-06-28 21:15:13</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">50.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">1</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : /****************************************************************************</span>
+<span id="L2"><span class="lineNum">       2</span>              : **</span>
+<span id="L3"><span class="lineNum">       3</span>              : ** Copyright (C) 2016 The Qt Company Ltd.</span>
+<span id="L4"><span class="lineNum">       4</span>              : ** Copyright (C) 2013 Olivier Goffart &lt;ogoffart@woboq.com&gt;</span>
+<span id="L5"><span class="lineNum">       5</span>              : ** Contact: https://www.qt.io/licensing/</span>
+<span id="L6"><span class="lineNum">       6</span>              : **</span>
+<span id="L7"><span class="lineNum">       7</span>              : ** This file is part of the QtCore module of the Qt Toolkit.</span>
+<span id="L8"><span class="lineNum">       8</span>              : **</span>
+<span id="L9"><span class="lineNum">       9</span>              : ** $QT_BEGIN_LICENSE:LGPL$</span>
+<span id="L10"><span class="lineNum">      10</span>              : ** Commercial License Usage</span>
+<span id="L11"><span class="lineNum">      11</span>              : ** Licensees holding valid commercial Qt licenses may use this file in</span>
+<span id="L12"><span class="lineNum">      12</span>              : ** accordance with the commercial license agreement provided with the</span>
+<span id="L13"><span class="lineNum">      13</span>              : ** Software or, alternatively, in accordance with the terms contained in</span>
+<span id="L14"><span class="lineNum">      14</span>              : ** a written agreement between you and The Qt Company. For licensing terms</span>
+<span id="L15"><span class="lineNum">      15</span>              : ** and conditions see https://www.qt.io/terms-conditions. For further</span>
+<span id="L16"><span class="lineNum">      16</span>              : ** information use the contact form at https://www.qt.io/contact-us.</span>
+<span id="L17"><span class="lineNum">      17</span>              : **</span>
+<span id="L18"><span class="lineNum">      18</span>              : ** GNU Lesser General Public License Usage</span>
+<span id="L19"><span class="lineNum">      19</span>              : ** Alternatively, this file may be used under the terms of the GNU Lesser</span>
+<span id="L20"><span class="lineNum">      20</span>              : ** General Public License version 3 as published by the Free Software</span>
+<span id="L21"><span class="lineNum">      21</span>              : ** Foundation and appearing in the file LICENSE.LGPL3 included in the</span>
+<span id="L22"><span class="lineNum">      22</span>              : ** packaging of this file. Please review the following information to</span>
+<span id="L23"><span class="lineNum">      23</span>              : ** ensure the GNU Lesser General Public License version 3 requirements</span>
+<span id="L24"><span class="lineNum">      24</span>              : ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.</span>
+<span id="L25"><span class="lineNum">      25</span>              : **</span>
+<span id="L26"><span class="lineNum">      26</span>              : ** GNU General Public License Usage</span>
+<span id="L27"><span class="lineNum">      27</span>              : ** Alternatively, this file may be used under the terms of the GNU</span>
+<span id="L28"><span class="lineNum">      28</span>              : ** General Public License version 2.0 or (at your option) the GNU General</span>
+<span id="L29"><span class="lineNum">      29</span>              : ** Public license version 3 or any later version approved by the KDE Free</span>
+<span id="L30"><span class="lineNum">      30</span>              : ** Qt Foundation. The licenses are as published by the Free Software</span>
+<span id="L31"><span class="lineNum">      31</span>              : ** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3</span>
+<span id="L32"><span class="lineNum">      32</span>              : ** included in the packaging of this file. Please review the following</span>
+<span id="L33"><span class="lineNum">      33</span>              : ** information to ensure the GNU General Public License requirements will</span>
+<span id="L34"><span class="lineNum">      34</span>              : ** be met: https://www.gnu.org/licenses/gpl-2.0.html and</span>
+<span id="L35"><span class="lineNum">      35</span>              : ** https://www.gnu.org/licenses/gpl-3.0.html.</span>
+<span id="L36"><span class="lineNum">      36</span>              : **</span>
+<span id="L37"><span class="lineNum">      37</span>              : ** $QT_END_LICENSE$</span>
+<span id="L38"><span class="lineNum">      38</span>              : **</span>
+<span id="L39"><span class="lineNum">      39</span>              : ****************************************************************************/</span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              : #ifndef QOBJECTDEFS_H</span>
+<span id="L42"><span class="lineNum">      42</span>              : #error Do not include qobjectdefs_impl.h directly</span>
+<span id="L43"><span class="lineNum">      43</span>              : #include &lt;QtCore/qnamespace.h&gt;</span>
+<span id="L44"><span class="lineNum">      44</span>              : #endif</span>
+<span id="L45"><span class="lineNum">      45</span>              : </span>
+<span id="L46"><span class="lineNum">      46</span>              : #if 0</span>
+<span id="L47"><span class="lineNum">      47</span>              : #pragma qt_sync_skip_header_check</span>
+<span id="L48"><span class="lineNum">      48</span>              : #pragma qt_sync_stop_processing</span>
+<span id="L49"><span class="lineNum">      49</span>              : #endif</span>
+<span id="L50"><span class="lineNum">      50</span>              : </span>
+<span id="L51"><span class="lineNum">      51</span>              : QT_BEGIN_NAMESPACE</span>
+<span id="L52"><span class="lineNum">      52</span>              : class QObject;</span>
+<span id="L53"><span class="lineNum">      53</span>              : </span>
+<span id="L54"><span class="lineNum">      54</span>              : namespace QtPrivate {</span>
+<span id="L55"><span class="lineNum">      55</span>              :     template &lt;typename T&gt; struct RemoveRef { typedef T Type; };</span>
+<span id="L56"><span class="lineNum">      56</span>              :     template &lt;typename T&gt; struct RemoveRef&lt;T&amp;&gt; { typedef T Type; };</span>
+<span id="L57"><span class="lineNum">      57</span>              :     template &lt;typename T&gt; struct RemoveConstRef { typedef T Type; };</span>
+<span id="L58"><span class="lineNum">      58</span>              :     template &lt;typename T&gt; struct RemoveConstRef&lt;const T&amp;&gt; { typedef T Type; };</span>
+<span id="L59"><span class="lineNum">      59</span>              : </span>
+<span id="L60"><span class="lineNum">      60</span>              :     /*</span>
+<span id="L61"><span class="lineNum">      61</span>              :        The following List classes are used to help to handle the list of arguments.</span>
+<span id="L62"><span class="lineNum">      62</span>              :        It follow the same principles as the lisp lists.</span>
+<span id="L63"><span class="lineNum">      63</span>              :        List_Left&lt;L,N&gt; take a list and a number as a parameter and returns (via the Value typedef,</span>
+<span id="L64"><span class="lineNum">      64</span>              :        the list composed of the first N element of the list</span>
+<span id="L65"><span class="lineNum">      65</span>              :      */</span>
+<span id="L66"><span class="lineNum">      66</span>              :     // With variadic template, lists are represented using a variadic template argument instead of the lisp way</span>
+<span id="L67"><span class="lineNum">      67</span>              :     template &lt;typename...&gt; struct List {};</span>
+<span id="L68"><span class="lineNum">      68</span>              :     template &lt;typename Head, typename... Tail&gt; struct List&lt;Head, Tail...&gt; { typedef Head Car; typedef List&lt;Tail...&gt; Cdr; };</span>
+<span id="L69"><span class="lineNum">      69</span>              :     template &lt;typename, typename&gt; struct List_Append;</span>
+<span id="L70"><span class="lineNum">      70</span>              :     template &lt;typename... L1, typename...L2&gt; struct List_Append&lt;List&lt;L1...&gt;, List&lt;L2...&gt;&gt; { typedef List&lt;L1..., L2...&gt; Value; };</span>
+<span id="L71"><span class="lineNum">      71</span>              :     template &lt;typename L, int N&gt; struct List_Left {</span>
+<span id="L72"><span class="lineNum">      72</span>              :         typedef typename List_Append&lt;List&lt;typename L::Car&gt;,typename List_Left&lt;typename L::Cdr, N - 1&gt;::Value&gt;::Value Value;</span>
+<span id="L73"><span class="lineNum">      73</span>              :     };</span>
+<span id="L74"><span class="lineNum">      74</span>              :     template &lt;typename L&gt; struct List_Left&lt;L, 0&gt; { typedef List&lt;&gt; Value; };</span>
+<span id="L75"><span class="lineNum">      75</span>              :     // List_Select&lt;L,N&gt; returns (via typedef Value) the Nth element of the list L</span>
+<span id="L76"><span class="lineNum">      76</span>              :     template &lt;typename L, int N&gt; struct List_Select { typedef typename List_Select&lt;typename L::Cdr, N - 1&gt;::Value Value; };</span>
+<span id="L77"><span class="lineNum">      77</span>              :     template &lt;typename L&gt; struct List_Select&lt;L,0&gt; { typedef typename L::Car Value; };</span>
+<span id="L78"><span class="lineNum">      78</span>              : </span>
+<span id="L79"><span class="lineNum">      79</span>              :     /*</span>
+<span id="L80"><span class="lineNum">      80</span>              :        trick to set the return value of a slot that works even if the signal or the slot returns void</span>
+<span id="L81"><span class="lineNum">      81</span>              :        to be used like     function(), ApplyReturnValue&lt;ReturnType&gt;(&amp;return_value)</span>
+<span id="L82"><span class="lineNum">      82</span>              :        if function() returns a value, the operator,(T, ApplyReturnValue&lt;ReturnType&gt;) is called, but if it</span>
+<span id="L83"><span class="lineNum">      83</span>              :        returns void, the builtin one is used without an error.</span>
+<span id="L84"><span class="lineNum">      84</span>              :     */</span>
+<span id="L85"><span class="lineNum">      85</span>              :     template &lt;typename T&gt;</span>
+<span id="L86"><span class="lineNum">      86</span>              :     struct ApplyReturnValue {</span>
+<span id="L87"><span class="lineNum">      87</span>              :         void *data;</span>
+<span id="L88"><span class="lineNum">      88</span> <span class="tlaUNC tlaBgUNC">           0 :         explicit ApplyReturnValue(void *data_) : data(data_) {}</span></span>
+<span id="L89"><span class="lineNum">      89</span>              :     };</span>
+<span id="L90"><span class="lineNum">      90</span>              :     template&lt;typename T, typename U&gt;</span>
+<span id="L91"><span class="lineNum">      91</span>              :     void operator,(T &amp;&amp;value, const ApplyReturnValue&lt;U&gt; &amp;container) {</span>
+<span id="L92"><span class="lineNum">      92</span>              :         if (container.data)</span>
+<span id="L93"><span class="lineNum">      93</span>              :             *reinterpret_cast&lt;U *&gt;(container.data) = std::forward&lt;T&gt;(value);</span>
+<span id="L94"><span class="lineNum">      94</span>              :     }</span>
+<span id="L95"><span class="lineNum">      95</span>              :     template&lt;typename T&gt;</span>
+<span id="L96"><span class="lineNum">      96</span>              :     void operator,(T, const ApplyReturnValue&lt;void&gt; &amp;) {}</span>
+<span id="L97"><span class="lineNum">      97</span>              : </span>
+<span id="L98"><span class="lineNum">      98</span>              : </span>
+<span id="L99"><span class="lineNum">      99</span>              :     /*</span>
+<span id="L100"><span class="lineNum">     100</span>              :       The FunctionPointer&lt;Func&gt; struct is a type trait for function pointer.</span>
+<span id="L101"><span class="lineNum">     101</span>              :         - ArgumentCount  is the number of argument, or -1 if it is unknown</span>
+<span id="L102"><span class="lineNum">     102</span>              :         - the Object typedef is the Object of a pointer to member function</span>
+<span id="L103"><span class="lineNum">     103</span>              :         - the Arguments typedef is the list of argument (in a QtPrivate::List)</span>
+<span id="L104"><span class="lineNum">     104</span>              :         - the Function typedef is an alias to the template parameter Func</span>
+<span id="L105"><span class="lineNum">     105</span>              :         - the call&lt;Args, R&gt;(f,o,args) method is used to call that slot</span>
+<span id="L106"><span class="lineNum">     106</span>              :             Args is the list of argument of the signal</span>
+<span id="L107"><span class="lineNum">     107</span>              :             R is the return type of the signal</span>
+<span id="L108"><span class="lineNum">     108</span>              :             f is the function pointer</span>
+<span id="L109"><span class="lineNum">     109</span>              :             o is the receiver object</span>
+<span id="L110"><span class="lineNum">     110</span>              :             and args is the array of pointer to arguments, as used in qt_metacall</span>
+<span id="L111"><span class="lineNum">     111</span>              : </span>
+<span id="L112"><span class="lineNum">     112</span>              :        The Functor&lt;Func,N&gt; struct is the helper to call a functor of N argument.</span>
+<span id="L113"><span class="lineNum">     113</span>              :        its call function is the same as the FunctionPointer::call function.</span>
+<span id="L114"><span class="lineNum">     114</span>              :      */</span>
+<span id="L115"><span class="lineNum">     115</span>              :     template&lt;class T&gt; using InvokeGenSeq = typename T::Type;</span>
+<span id="L116"><span class="lineNum">     116</span>              : </span>
+<span id="L117"><span class="lineNum">     117</span>              :     template&lt;int...&gt; struct IndexesList { using Type = IndexesList; };</span>
+<span id="L118"><span class="lineNum">     118</span>              : </span>
+<span id="L119"><span class="lineNum">     119</span>              :     template&lt;int N, class S1, class S2&gt; struct ConcatSeqImpl;</span>
+<span id="L120"><span class="lineNum">     120</span>              : </span>
+<span id="L121"><span class="lineNum">     121</span>              :     template&lt;int N, int... I1, int... I2&gt;</span>
+<span id="L122"><span class="lineNum">     122</span>              :     struct ConcatSeqImpl&lt;N, IndexesList&lt;I1...&gt;, IndexesList&lt;I2...&gt;&gt;</span>
+<span id="L123"><span class="lineNum">     123</span>              :         : IndexesList&lt;I1..., (N + I2)...&gt;{};</span>
+<span id="L124"><span class="lineNum">     124</span>              : </span>
+<span id="L125"><span class="lineNum">     125</span>              :     template&lt;int N, class S1, class S2&gt;</span>
+<span id="L126"><span class="lineNum">     126</span>              :     using ConcatSeq = InvokeGenSeq&lt;ConcatSeqImpl&lt;N, S1, S2&gt;&gt;;</span>
+<span id="L127"><span class="lineNum">     127</span>              : </span>
+<span id="L128"><span class="lineNum">     128</span>              :     template&lt;int N&gt; struct GenSeq;</span>
+<span id="L129"><span class="lineNum">     129</span>              :     template&lt;int N&gt; using makeIndexSequence = InvokeGenSeq&lt;GenSeq&lt;N&gt;&gt;;</span>
+<span id="L130"><span class="lineNum">     130</span>              : </span>
+<span id="L131"><span class="lineNum">     131</span>              :     template&lt;int N&gt;</span>
+<span id="L132"><span class="lineNum">     132</span>              :     struct GenSeq : ConcatSeq&lt;N/2, makeIndexSequence&lt;N/2&gt;, makeIndexSequence&lt;N - N/2&gt;&gt;{};</span>
+<span id="L133"><span class="lineNum">     133</span>              : </span>
+<span id="L134"><span class="lineNum">     134</span>              :     template&lt;&gt; struct GenSeq&lt;0&gt; : IndexesList&lt;&gt;{};</span>
+<span id="L135"><span class="lineNum">     135</span>              :     template&lt;&gt; struct GenSeq&lt;1&gt; : IndexesList&lt;0&gt;{};</span>
+<span id="L136"><span class="lineNum">     136</span>              : </span>
+<span id="L137"><span class="lineNum">     137</span>              :     template&lt;int N&gt;</span>
+<span id="L138"><span class="lineNum">     138</span>              :     struct Indexes { using Value = makeIndexSequence&lt;N&gt;; };</span>
+<span id="L139"><span class="lineNum">     139</span>              : </span>
+<span id="L140"><span class="lineNum">     140</span>              :     template&lt;typename Func&gt; struct FunctionPointer { enum {ArgumentCount = -1, IsPointerToMemberFunction = false}; };</span>
+<span id="L141"><span class="lineNum">     141</span>              : </span>
+<span id="L142"><span class="lineNum">     142</span>              :     template &lt;typename, typename, typename, typename&gt; struct FunctorCall;</span>
+<span id="L143"><span class="lineNum">     143</span>              :     template &lt;int... II, typename... SignalArgs, typename R, typename Function&gt;</span>
+<span id="L144"><span class="lineNum">     144</span>              :     struct FunctorCall&lt;IndexesList&lt;II...&gt;, List&lt;SignalArgs...&gt;, R, Function&gt; {</span>
+<span id="L145"><span class="lineNum">     145</span>              :         static void call(Function &amp;f, void **arg) {</span>
+<span id="L146"><span class="lineNum">     146</span>              :             f((*reinterpret_cast&lt;typename RemoveRef&lt;SignalArgs&gt;::Type *&gt;(arg[II+1]))...), ApplyReturnValue&lt;R&gt;(arg[0]);</span>
+<span id="L147"><span class="lineNum">     147</span>              :         }</span>
+<span id="L148"><span class="lineNum">     148</span>              :     };</span>
+<span id="L149"><span class="lineNum">     149</span>              :     template &lt;int... II, typename... SignalArgs, typename R, typename... SlotArgs, typename SlotRet, class Obj&gt;</span>
+<span id="L150"><span class="lineNum">     150</span>              :     struct FunctorCall&lt;IndexesList&lt;II...&gt;, List&lt;SignalArgs...&gt;, R, SlotRet (Obj::*)(SlotArgs...)&gt; {</span>
+<span id="L151"><span class="lineNum">     151</span> <span class="tlaUNC">           0 :         static void call(SlotRet (Obj::*f)(SlotArgs...), Obj *o, void **arg) {</span></span>
+<span id="L152"><span class="lineNum">     152</span> <span class="tlaUNC">           0 :             (o-&gt;*f)((*reinterpret_cast&lt;typename RemoveRef&lt;SignalArgs&gt;::Type *&gt;(arg[II+1]))...), ApplyReturnValue&lt;R&gt;(arg[0]);</span></span>
+<span id="L153"><span class="lineNum">     153</span> <span class="tlaUNC">           0 :         }</span></span>
+<span id="L154"><span class="lineNum">     154</span>              :     };</span>
+<span id="L155"><span class="lineNum">     155</span>              :     template &lt;int... II, typename... SignalArgs, typename R, typename... SlotArgs, typename SlotRet, class Obj&gt;</span>
+<span id="L156"><span class="lineNum">     156</span>              :     struct FunctorCall&lt;IndexesList&lt;II...&gt;, List&lt;SignalArgs...&gt;, R, SlotRet (Obj::*)(SlotArgs...) const&gt; {</span>
+<span id="L157"><span class="lineNum">     157</span>              :         static void call(SlotRet (Obj::*f)(SlotArgs...) const, Obj *o, void **arg) {</span>
+<span id="L158"><span class="lineNum">     158</span>              :             (o-&gt;*f)((*reinterpret_cast&lt;typename RemoveRef&lt;SignalArgs&gt;::Type *&gt;(arg[II+1]))...), ApplyReturnValue&lt;R&gt;(arg[0]);</span>
+<span id="L159"><span class="lineNum">     159</span>              :         }</span>
+<span id="L160"><span class="lineNum">     160</span>              :     };</span>
+<span id="L161"><span class="lineNum">     161</span>              : #if defined(__cpp_noexcept_function_type) &amp;&amp; __cpp_noexcept_function_type &gt;= 201510</span>
+<span id="L162"><span class="lineNum">     162</span>              :     template &lt;int... II, typename... SignalArgs, typename R, typename... SlotArgs, typename SlotRet, class Obj&gt;</span>
+<span id="L163"><span class="lineNum">     163</span>              :     struct FunctorCall&lt;IndexesList&lt;II...&gt;, List&lt;SignalArgs...&gt;, R, SlotRet (Obj::*)(SlotArgs...) noexcept&gt; {</span>
+<span id="L164"><span class="lineNum">     164</span>              :         static void call(SlotRet (Obj::*f)(SlotArgs...) noexcept, Obj *o, void **arg) {</span>
+<span id="L165"><span class="lineNum">     165</span>              :             (o-&gt;*f)((*reinterpret_cast&lt;typename RemoveRef&lt;SignalArgs&gt;::Type *&gt;(arg[II+1]))...), ApplyReturnValue&lt;R&gt;(arg[0]);</span>
+<span id="L166"><span class="lineNum">     166</span>              :         }</span>
+<span id="L167"><span class="lineNum">     167</span>              :     };</span>
+<span id="L168"><span class="lineNum">     168</span>              :     template &lt;int... II, typename... SignalArgs, typename R, typename... SlotArgs, typename SlotRet, class Obj&gt;</span>
+<span id="L169"><span class="lineNum">     169</span>              :     struct FunctorCall&lt;IndexesList&lt;II...&gt;, List&lt;SignalArgs...&gt;, R, SlotRet (Obj::*)(SlotArgs...) const noexcept&gt; {</span>
+<span id="L170"><span class="lineNum">     170</span>              :         static void call(SlotRet (Obj::*f)(SlotArgs...) const noexcept, Obj *o, void **arg) {</span>
+<span id="L171"><span class="lineNum">     171</span>              :             (o-&gt;*f)((*reinterpret_cast&lt;typename RemoveRef&lt;SignalArgs&gt;::Type *&gt;(arg[II+1]))...), ApplyReturnValue&lt;R&gt;(arg[0]);</span>
+<span id="L172"><span class="lineNum">     172</span>              :         }</span>
+<span id="L173"><span class="lineNum">     173</span>              :     };</span>
+<span id="L174"><span class="lineNum">     174</span>              : #endif</span>
+<span id="L175"><span class="lineNum">     175</span>              : </span>
+<span id="L176"><span class="lineNum">     176</span>              :     template&lt;class Obj, typename Ret, typename... Args&gt; struct FunctionPointer&lt;Ret (Obj::*) (Args...)&gt;</span>
+<span id="L177"><span class="lineNum">     177</span>              :     {</span>
+<span id="L178"><span class="lineNum">     178</span>              :         typedef Obj Object;</span>
+<span id="L179"><span class="lineNum">     179</span>              :         typedef List&lt;Args...&gt;  Arguments;</span>
+<span id="L180"><span class="lineNum">     180</span>              :         typedef Ret ReturnType;</span>
+<span id="L181"><span class="lineNum">     181</span>              :         typedef Ret (Obj::*Function) (Args...);</span>
+<span id="L182"><span class="lineNum">     182</span>              :         enum {ArgumentCount = sizeof...(Args), IsPointerToMemberFunction = true};</span>
+<span id="L183"><span class="lineNum">     183</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC">           0 :         static void call(Function f, Obj *o, void **arg) {</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC">           0 :             FunctorCall&lt;typename Indexes&lt;ArgumentCount&gt;::Value, SignalArgs, R, Function&gt;::call(f, o, arg);</span></span>
+<span id="L186"><span class="lineNum">     186</span>              :         }</span>
+<span id="L187"><span class="lineNum">     187</span>              :     };</span>
+<span id="L188"><span class="lineNum">     188</span>              :     template&lt;class Obj, typename Ret, typename... Args&gt; struct FunctionPointer&lt;Ret (Obj::*) (Args...) const&gt;</span>
+<span id="L189"><span class="lineNum">     189</span>              :     {</span>
+<span id="L190"><span class="lineNum">     190</span>              :         typedef Obj Object;</span>
+<span id="L191"><span class="lineNum">     191</span>              :         typedef List&lt;Args...&gt;  Arguments;</span>
+<span id="L192"><span class="lineNum">     192</span>              :         typedef Ret ReturnType;</span>
+<span id="L193"><span class="lineNum">     193</span>              :         typedef Ret (Obj::*Function) (Args...) const;</span>
+<span id="L194"><span class="lineNum">     194</span>              :         enum {ArgumentCount = sizeof...(Args), IsPointerToMemberFunction = true};</span>
+<span id="L195"><span class="lineNum">     195</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L196"><span class="lineNum">     196</span>              :         static void call(Function f, Obj *o, void **arg) {</span>
+<span id="L197"><span class="lineNum">     197</span>              :             FunctorCall&lt;typename Indexes&lt;ArgumentCount&gt;::Value, SignalArgs, R, Function&gt;::call(f, o, arg);</span>
+<span id="L198"><span class="lineNum">     198</span>              :         }</span>
+<span id="L199"><span class="lineNum">     199</span>              :     };</span>
+<span id="L200"><span class="lineNum">     200</span>              : </span>
+<span id="L201"><span class="lineNum">     201</span>              :     template&lt;typename Ret, typename... Args&gt; struct FunctionPointer&lt;Ret (*) (Args...)&gt;</span>
+<span id="L202"><span class="lineNum">     202</span>              :     {</span>
+<span id="L203"><span class="lineNum">     203</span>              :         typedef List&lt;Args...&gt; Arguments;</span>
+<span id="L204"><span class="lineNum">     204</span>              :         typedef Ret ReturnType;</span>
+<span id="L205"><span class="lineNum">     205</span>              :         typedef Ret (*Function) (Args...);</span>
+<span id="L206"><span class="lineNum">     206</span>              :         enum {ArgumentCount = sizeof...(Args), IsPointerToMemberFunction = false};</span>
+<span id="L207"><span class="lineNum">     207</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L208"><span class="lineNum">     208</span>              :         static void call(Function f, void *, void **arg) {</span>
+<span id="L209"><span class="lineNum">     209</span>              :             FunctorCall&lt;typename Indexes&lt;ArgumentCount&gt;::Value, SignalArgs, R, Function&gt;::call(f, arg);</span>
+<span id="L210"><span class="lineNum">     210</span>              :         }</span>
+<span id="L211"><span class="lineNum">     211</span>              :     };</span>
+<span id="L212"><span class="lineNum">     212</span>              : </span>
+<span id="L213"><span class="lineNum">     213</span>              : #if defined(__cpp_noexcept_function_type) &amp;&amp; __cpp_noexcept_function_type &gt;= 201510</span>
+<span id="L214"><span class="lineNum">     214</span>              :     template&lt;class Obj, typename Ret, typename... Args&gt; struct FunctionPointer&lt;Ret (Obj::*) (Args...) noexcept&gt;</span>
+<span id="L215"><span class="lineNum">     215</span>              :     {</span>
+<span id="L216"><span class="lineNum">     216</span>              :         typedef Obj Object;</span>
+<span id="L217"><span class="lineNum">     217</span>              :         typedef List&lt;Args...&gt;  Arguments;</span>
+<span id="L218"><span class="lineNum">     218</span>              :         typedef Ret ReturnType;</span>
+<span id="L219"><span class="lineNum">     219</span>              :         typedef Ret (Obj::*Function) (Args...) noexcept;</span>
+<span id="L220"><span class="lineNum">     220</span>              :         enum {ArgumentCount = sizeof...(Args), IsPointerToMemberFunction = true};</span>
+<span id="L221"><span class="lineNum">     221</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L222"><span class="lineNum">     222</span>              :         static void call(Function f, Obj *o, void **arg) {</span>
+<span id="L223"><span class="lineNum">     223</span>              :             FunctorCall&lt;typename Indexes&lt;ArgumentCount&gt;::Value, SignalArgs, R, Function&gt;::call(f, o, arg);</span>
+<span id="L224"><span class="lineNum">     224</span>              :         }</span>
+<span id="L225"><span class="lineNum">     225</span>              :     };</span>
+<span id="L226"><span class="lineNum">     226</span>              :     template&lt;class Obj, typename Ret, typename... Args&gt; struct FunctionPointer&lt;Ret (Obj::*) (Args...) const noexcept&gt;</span>
+<span id="L227"><span class="lineNum">     227</span>              :     {</span>
+<span id="L228"><span class="lineNum">     228</span>              :         typedef Obj Object;</span>
+<span id="L229"><span class="lineNum">     229</span>              :         typedef List&lt;Args...&gt;  Arguments;</span>
+<span id="L230"><span class="lineNum">     230</span>              :         typedef Ret ReturnType;</span>
+<span id="L231"><span class="lineNum">     231</span>              :         typedef Ret (Obj::*Function) (Args...) const noexcept;</span>
+<span id="L232"><span class="lineNum">     232</span>              :         enum {ArgumentCount = sizeof...(Args), IsPointerToMemberFunction = true};</span>
+<span id="L233"><span class="lineNum">     233</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L234"><span class="lineNum">     234</span>              :         static void call(Function f, Obj *o, void **arg) {</span>
+<span id="L235"><span class="lineNum">     235</span>              :             FunctorCall&lt;typename Indexes&lt;ArgumentCount&gt;::Value, SignalArgs, R, Function&gt;::call(f, o, arg);</span>
+<span id="L236"><span class="lineNum">     236</span>              :         }</span>
+<span id="L237"><span class="lineNum">     237</span>              :     };</span>
+<span id="L238"><span class="lineNum">     238</span>              : </span>
+<span id="L239"><span class="lineNum">     239</span>              :     template&lt;typename Ret, typename... Args&gt; struct FunctionPointer&lt;Ret (*) (Args...) noexcept&gt;</span>
+<span id="L240"><span class="lineNum">     240</span>              :     {</span>
+<span id="L241"><span class="lineNum">     241</span>              :         typedef List&lt;Args...&gt; Arguments;</span>
+<span id="L242"><span class="lineNum">     242</span>              :         typedef Ret ReturnType;</span>
+<span id="L243"><span class="lineNum">     243</span>              :         typedef Ret (*Function) (Args...) noexcept;</span>
+<span id="L244"><span class="lineNum">     244</span>              :         enum {ArgumentCount = sizeof...(Args), IsPointerToMemberFunction = false};</span>
+<span id="L245"><span class="lineNum">     245</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L246"><span class="lineNum">     246</span>              :         static void call(Function f, void *, void **arg) {</span>
+<span id="L247"><span class="lineNum">     247</span>              :             FunctorCall&lt;typename Indexes&lt;ArgumentCount&gt;::Value, SignalArgs, R, Function&gt;::call(f, arg);</span>
+<span id="L248"><span class="lineNum">     248</span>              :         }</span>
+<span id="L249"><span class="lineNum">     249</span>              :     };</span>
+<span id="L250"><span class="lineNum">     250</span>              : #endif</span>
+<span id="L251"><span class="lineNum">     251</span>              : </span>
+<span id="L252"><span class="lineNum">     252</span>              :     template&lt;typename Function, int N&gt; struct Functor</span>
+<span id="L253"><span class="lineNum">     253</span>              :     {</span>
+<span id="L254"><span class="lineNum">     254</span>              :         template &lt;typename SignalArgs, typename R&gt;</span>
+<span id="L255"><span class="lineNum">     255</span>              :         static void call(Function &amp;f, void *, void **arg) {</span>
+<span id="L256"><span class="lineNum">     256</span>              :             FunctorCall&lt;typename Indexes&lt;N&gt;::Value, SignalArgs, R, Function&gt;::call(f, arg);</span>
+<span id="L257"><span class="lineNum">     257</span>              :         }</span>
+<span id="L258"><span class="lineNum">     258</span>              :     };</span>
+<span id="L259"><span class="lineNum">     259</span>              : </span>
+<span id="L260"><span class="lineNum">     260</span>              :     // Traits to detect if there is a conversion between two types,</span>
+<span id="L261"><span class="lineNum">     261</span>              :     // and that conversion does not include a narrowing conversion.</span>
+<span id="L262"><span class="lineNum">     262</span>              :     template &lt;typename T&gt;</span>
+<span id="L263"><span class="lineNum">     263</span>              :     struct NarrowingDetector { T t[1]; }; // from P0608</span>
+<span id="L264"><span class="lineNum">     264</span>              : </span>
+<span id="L265"><span class="lineNum">     265</span>              :     template &lt;typename From, typename To, typename Enable = void&gt;</span>
+<span id="L266"><span class="lineNum">     266</span>              :     struct IsConvertibleWithoutNarrowing : std::false_type {};</span>
+<span id="L267"><span class="lineNum">     267</span>              : </span>
+<span id="L268"><span class="lineNum">     268</span>              :     template &lt;typename From, typename To&gt;</span>
+<span id="L269"><span class="lineNum">     269</span>              :     struct IsConvertibleWithoutNarrowing&lt;From, To,</span>
+<span id="L270"><span class="lineNum">     270</span>              :             std::void_t&lt; decltype( NarrowingDetector&lt;To&gt;{ {std::declval&lt;From&gt;()} } ) &gt;</span>
+<span id="L271"><span class="lineNum">     271</span>              :         &gt; : std::true_type {};</span>
+<span id="L272"><span class="lineNum">     272</span>              : </span>
+<span id="L273"><span class="lineNum">     273</span>              :     // Check for the actual arguments. If they are exactly the same,</span>
+<span id="L274"><span class="lineNum">     274</span>              :     // then don't bother checking for narrowing; as a by-product,</span>
+<span id="L275"><span class="lineNum">     275</span>              :     // this solves the problem of incomplete types (which must be supported,</span>
+<span id="L276"><span class="lineNum">     276</span>              :     // or they would error out in the trait above).</span>
+<span id="L277"><span class="lineNum">     277</span>              :     template &lt;typename From, typename To, typename Enable = void&gt;</span>
+<span id="L278"><span class="lineNum">     278</span>              :     struct AreArgumentsConvertibleWithoutNarrowingBase : std::false_type {};</span>
+<span id="L279"><span class="lineNum">     279</span>              : </span>
+<span id="L280"><span class="lineNum">     280</span>              :     template &lt;typename From, typename To&gt;</span>
+<span id="L281"><span class="lineNum">     281</span>              :     struct AreArgumentsConvertibleWithoutNarrowingBase&lt;From, To,</span>
+<span id="L282"><span class="lineNum">     282</span>              :         std::enable_if_t&lt;</span>
+<span id="L283"><span class="lineNum">     283</span>              :             std::disjunction_v&lt;std::is_same&lt;From, To&gt;, IsConvertibleWithoutNarrowing&lt;From, To&gt;&gt;</span>
+<span id="L284"><span class="lineNum">     284</span>              :         &gt;</span>
+<span id="L285"><span class="lineNum">     285</span>              :     &gt; : std::true_type {};</span>
+<span id="L286"><span class="lineNum">     286</span>              : </span>
+<span id="L287"><span class="lineNum">     287</span>              :     /*</span>
+<span id="L288"><span class="lineNum">     288</span>              :        Logic that check if the arguments of the slot matches the argument of the signal.</span>
+<span id="L289"><span class="lineNum">     289</span>              :        To be used like this:</span>
+<span id="L290"><span class="lineNum">     290</span>              :        static_assert(CheckCompatibleArguments&lt;FunctionPointer&lt;Signal&gt;::Arguments, FunctionPointer&lt;Slot&gt;::Arguments&gt;::value)</span>
+<span id="L291"><span class="lineNum">     291</span>              :     */</span>
+<span id="L292"><span class="lineNum">     292</span>              :     template&lt;typename A1, typename A2&gt; struct AreArgumentsCompatible {</span>
+<span id="L293"><span class="lineNum">     293</span>              :         static int test(const typename RemoveRef&lt;A2&gt;::Type&amp;);</span>
+<span id="L294"><span class="lineNum">     294</span>              :         static char test(...);</span>
+<span id="L295"><span class="lineNum">     295</span>              :         static const typename RemoveRef&lt;A1&gt;::Type &amp;dummy();</span>
+<span id="L296"><span class="lineNum">     296</span>              :         enum { value = sizeof(test(dummy())) == sizeof(int) };</span>
+<span id="L297"><span class="lineNum">     297</span>              : #ifdef QT_NO_NARROWING_CONVERSIONS_IN_CONNECT</span>
+<span id="L298"><span class="lineNum">     298</span>              :         using AreArgumentsConvertibleWithoutNarrowing = AreArgumentsConvertibleWithoutNarrowingBase&lt;std::decay_t&lt;A1&gt;, std::decay_t&lt;A2&gt;&gt;;</span>
+<span id="L299"><span class="lineNum">     299</span>              :         static_assert(AreArgumentsConvertibleWithoutNarrowing::value, &quot;Signal and slot arguments are not compatible (narrowing)&quot;);</span>
+<span id="L300"><span class="lineNum">     300</span>              : #endif</span>
+<span id="L301"><span class="lineNum">     301</span>              :     };</span>
+<span id="L302"><span class="lineNum">     302</span>              :     template&lt;typename A1, typename A2&gt; struct AreArgumentsCompatible&lt;A1, A2&amp;&gt; { enum { value = false }; };</span>
+<span id="L303"><span class="lineNum">     303</span>              :     template&lt;typename A&gt; struct AreArgumentsCompatible&lt;A&amp;, A&amp;&gt; { enum { value = true }; };</span>
+<span id="L304"><span class="lineNum">     304</span>              :     // void as a return value</span>
+<span id="L305"><span class="lineNum">     305</span>              :     template&lt;typename A&gt; struct AreArgumentsCompatible&lt;void, A&gt; { enum { value = true }; };</span>
+<span id="L306"><span class="lineNum">     306</span>              :     template&lt;typename A&gt; struct AreArgumentsCompatible&lt;A, void&gt; { enum { value = true }; };</span>
+<span id="L307"><span class="lineNum">     307</span>              :     template&lt;&gt; struct AreArgumentsCompatible&lt;void, void&gt; { enum { value = true }; };</span>
+<span id="L308"><span class="lineNum">     308</span>              : </span>
+<span id="L309"><span class="lineNum">     309</span>              :     template &lt;typename List1, typename List2&gt; struct CheckCompatibleArguments { enum { value = false }; };</span>
+<span id="L310"><span class="lineNum">     310</span>              :     template &lt;&gt; struct CheckCompatibleArguments&lt;List&lt;&gt;, List&lt;&gt;&gt; { enum { value = true }; };</span>
+<span id="L311"><span class="lineNum">     311</span>              :     template &lt;typename List1&gt; struct CheckCompatibleArguments&lt;List1, List&lt;&gt;&gt; { enum { value = true }; };</span>
+<span id="L312"><span class="lineNum">     312</span>              :     template &lt;typename Arg1, typename Arg2, typename... Tail1, typename... Tail2&gt;</span>
+<span id="L313"><span class="lineNum">     313</span>              :     struct CheckCompatibleArguments&lt;List&lt;Arg1, Tail1...&gt;, List&lt;Arg2, Tail2...&gt;&gt;</span>
+<span id="L314"><span class="lineNum">     314</span>              :     {</span>
+<span id="L315"><span class="lineNum">     315</span>              :         enum { value = AreArgumentsCompatible&lt;typename RemoveConstRef&lt;Arg1&gt;::Type, typename RemoveConstRef&lt;Arg2&gt;::Type&gt;::value</span>
+<span id="L316"><span class="lineNum">     316</span>              :                     &amp;&amp; CheckCompatibleArguments&lt;List&lt;Tail1...&gt;, List&lt;Tail2...&gt;&gt;::value };</span>
+<span id="L317"><span class="lineNum">     317</span>              :     };</span>
+<span id="L318"><span class="lineNum">     318</span>              : </span>
+<span id="L319"><span class="lineNum">     319</span>              :     /*</span>
+<span id="L320"><span class="lineNum">     320</span>              :        Find the maximum number of arguments a functor object can take and be still compatible with</span>
+<span id="L321"><span class="lineNum">     321</span>              :        the arguments from the signal.</span>
+<span id="L322"><span class="lineNum">     322</span>              :        Value is the number of arguments, or -1 if nothing matches.</span>
+<span id="L323"><span class="lineNum">     323</span>              :      */</span>
+<span id="L324"><span class="lineNum">     324</span>              :     template &lt;typename Functor, typename ArgList&gt; struct ComputeFunctorArgumentCount;</span>
+<span id="L325"><span class="lineNum">     325</span>              : </span>
+<span id="L326"><span class="lineNum">     326</span>              :     template &lt;typename Functor, typename ArgList, bool Done&gt; struct ComputeFunctorArgumentCountHelper</span>
+<span id="L327"><span class="lineNum">     327</span>              :     { enum { Value = -1 }; };</span>
+<span id="L328"><span class="lineNum">     328</span>              :     template &lt;typename Functor, typename First, typename... ArgList&gt;</span>
+<span id="L329"><span class="lineNum">     329</span>              :     struct ComputeFunctorArgumentCountHelper&lt;Functor, List&lt;First, ArgList...&gt;, false&gt;</span>
+<span id="L330"><span class="lineNum">     330</span>              :         : ComputeFunctorArgumentCount&lt;Functor,</span>
+<span id="L331"><span class="lineNum">     331</span>              :             typename List_Left&lt;List&lt;First, ArgList...&gt;, sizeof...(ArgList)&gt;::Value&gt; {};</span>
+<span id="L332"><span class="lineNum">     332</span>              : </span>
+<span id="L333"><span class="lineNum">     333</span>              :     template &lt;typename Functor, typename... ArgList&gt; struct ComputeFunctorArgumentCount&lt;Functor, List&lt;ArgList...&gt;&gt;</span>
+<span id="L334"><span class="lineNum">     334</span>              :     {</span>
+<span id="L335"><span class="lineNum">     335</span>              :         template &lt;typename D&gt; static D dummy();</span>
+<span id="L336"><span class="lineNum">     336</span>              :         template &lt;typename F&gt; static auto test(F f) -&gt; decltype(((f.operator()((dummy&lt;ArgList&gt;())...)), int()));</span>
+<span id="L337"><span class="lineNum">     337</span>              :         static char test(...);</span>
+<span id="L338"><span class="lineNum">     338</span>              :         enum {</span>
+<span id="L339"><span class="lineNum">     339</span>              :             Ok = sizeof(test(dummy&lt;Functor&gt;())) == sizeof(int),</span>
+<span id="L340"><span class="lineNum">     340</span>              :             Value = Ok ? int(sizeof...(ArgList)) : int(ComputeFunctorArgumentCountHelper&lt;Functor, List&lt;ArgList...&gt;, Ok&gt;::Value)</span>
+<span id="L341"><span class="lineNum">     341</span>              :         };</span>
+<span id="L342"><span class="lineNum">     342</span>              :     };</span>
+<span id="L343"><span class="lineNum">     343</span>              : </span>
+<span id="L344"><span class="lineNum">     344</span>              :     /* get the return type of a functor, given the signal argument list  */</span>
+<span id="L345"><span class="lineNum">     345</span>              :     template &lt;typename Functor, typename ArgList&gt; struct FunctorReturnType;</span>
+<span id="L346"><span class="lineNum">     346</span>              :     template &lt;typename Functor, typename ... ArgList&gt; struct FunctorReturnType&lt;Functor, List&lt;ArgList...&gt;&gt; {</span>
+<span id="L347"><span class="lineNum">     347</span>              :         template &lt;typename D&gt; static D dummy();</span>
+<span id="L348"><span class="lineNum">     348</span>              :         typedef decltype(dummy&lt;Functor&gt;().operator()((dummy&lt;ArgList&gt;())...)) Value;</span>
+<span id="L349"><span class="lineNum">     349</span>              :     };</span>
+<span id="L350"><span class="lineNum">     350</span>              : </span>
+<span id="L351"><span class="lineNum">     351</span>              :     // internal base class (interface) containing functions required to call a slot managed by a pointer to function.</span>
+<span id="L352"><span class="lineNum">     352</span>              :     class QSlotObjectBase {</span>
+<span id="L353"><span class="lineNum">     353</span>              :         QAtomicInt m_ref;</span>
+<span id="L354"><span class="lineNum">     354</span>              :         // don't use virtual functions here; we don't want the</span>
+<span id="L355"><span class="lineNum">     355</span>              :         // compiler to create tons of per-polymorphic-class stuff that</span>
+<span id="L356"><span class="lineNum">     356</span>              :         // we'll never need. We just use one function pointer.</span>
+<span id="L357"><span class="lineNum">     357</span>              :         typedef void (*ImplFn)(int which, QSlotObjectBase* this_, QObject *receiver, void **args, bool *ret);</span>
+<span id="L358"><span class="lineNum">     358</span>              :         const ImplFn m_impl;</span>
+<span id="L359"><span class="lineNum">     359</span>              :     protected:</span>
+<span id="L360"><span class="lineNum">     360</span>              :         enum Operation {</span>
+<span id="L361"><span class="lineNum">     361</span>              :             Destroy,</span>
+<span id="L362"><span class="lineNum">     362</span>              :             Call,</span>
+<span id="L363"><span class="lineNum">     363</span>              :             Compare,</span>
+<span id="L364"><span class="lineNum">     364</span>              : </span>
+<span id="L365"><span class="lineNum">     365</span>              :             NumOperations</span>
+<span id="L366"><span class="lineNum">     366</span>              :         };</span>
+<span id="L367"><span class="lineNum">     367</span>              :     public:</span>
+<span id="L368"><span class="lineNum">     368</span> <span class="tlaGNC tlaBgGNC">           8 :         explicit QSlotObjectBase(ImplFn fn) : m_ref(1), m_impl(fn) {}</span></span>
+<span id="L369"><span class="lineNum">     369</span>              : </span>
+<span id="L370"><span class="lineNum">     370</span>              :         inline int ref() noexcept { return m_ref.ref(); }</span>
+<span id="L371"><span class="lineNum">     371</span>              :         inline void destroyIfLastRef() noexcept</span>
+<span id="L372"><span class="lineNum">     372</span>              :         { if (!m_ref.deref()) m_impl(Destroy, this, nullptr, nullptr, nullptr); }</span>
+<span id="L373"><span class="lineNum">     373</span>              : </span>
+<span id="L374"><span class="lineNum">     374</span>              :         inline bool compare(void **a) { bool ret = false; m_impl(Compare, this, nullptr, a, &amp;ret); return ret; }</span>
+<span id="L375"><span class="lineNum">     375</span>              :         inline void call(QObject *r, void **a)  { m_impl(Call,    this, r, a, nullptr); }</span>
+<span id="L376"><span class="lineNum">     376</span>              :     protected:</span>
+<span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC">           8 :         ~QSlotObjectBase() {}</span></span>
+<span id="L378"><span class="lineNum">     378</span>              :     private:</span>
+<span id="L379"><span class="lineNum">     379</span>              :         Q_DISABLE_COPY_MOVE(QSlotObjectBase)</span>
+<span id="L380"><span class="lineNum">     380</span>              :     };</span>
+<span id="L381"><span class="lineNum">     381</span>              : </span>
+<span id="L382"><span class="lineNum">     382</span>              :     // implementation of QSlotObjectBase for which the slot is a pointer to member function of a QObject</span>
+<span id="L383"><span class="lineNum">     383</span>              :     // Args and R are the List of arguments and the return type of the signal to which the slot is connected.</span>
+<span id="L384"><span class="lineNum">     384</span> <span class="tlaGNC">           8 :     template&lt;typename Func, typename Args, typename R&gt; class QSlotObject : public QSlotObjectBase</span></span>
+<span id="L385"><span class="lineNum">     385</span>              :     {</span>
+<span id="L386"><span class="lineNum">     386</span>              :         typedef QtPrivate::FunctionPointer&lt;Func&gt; FuncType;</span>
+<span id="L387"><span class="lineNum">     387</span>              :         Func function;</span>
+<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC">           8 :         static void impl(int which, QSlotObjectBase *this_, QObject *r, void **a, bool *ret)</span></span>
+<span id="L389"><span class="lineNum">     389</span>              :         {</span>
+<span id="L390"><span class="lineNum">     390</span> <span class="tlaGNC">           8 :             switch (which) {</span></span>
+<span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC">           8 :             case Destroy:</span></span>
+<span id="L392"><span class="lineNum">     392</span> <span class="tlaGNC">           8 :                 delete static_cast&lt;QSlotObject*&gt;(this_);</span></span>
+<span id="L393"><span class="lineNum">     393</span>              :                 break;</span>
+<span id="L394"><span class="lineNum">     394</span> <span class="tlaUNC tlaBgUNC">           0 :             case Call:</span></span>
+<span id="L395"><span class="lineNum">     395</span> <span class="tlaUNC">           0 :                 FuncType::template call&lt;Args, R&gt;(static_cast&lt;QSlotObject*&gt;(this_)-&gt;function, static_cast&lt;typename FuncType::Object *&gt;(r), a);</span></span>
+<span id="L396"><span class="lineNum">     396</span> <span class="tlaUNC">           0 :                 break;</span></span>
+<span id="L397"><span class="lineNum">     397</span> <span class="tlaUNC">           0 :             case Compare:</span></span>
+<span id="L398"><span class="lineNum">     398</span> <span class="tlaUNC">           0 :                 *ret = *reinterpret_cast&lt;Func *&gt;(a) == static_cast&lt;QSlotObject*&gt;(this_)-&gt;function;</span></span>
+<span id="L399"><span class="lineNum">     399</span> <span class="tlaUNC">           0 :                 break;</span></span>
+<span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC tlaBgGNC">           8 :             case NumOperations: ;</span></span>
+<span id="L401"><span class="lineNum">     401</span>              :             }</span>
+<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">           8 :         }</span></span>
+<span id="L403"><span class="lineNum">     403</span>              :     public:</span>
+<span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC">           8 :         explicit QSlotObject(Func f) : QSlotObjectBase(&amp;impl), function(f) {}</span></span>
+<span id="L405"><span class="lineNum">     405</span>              :     };</span>
+<span id="L406"><span class="lineNum">     406</span>              :     // implementation of QSlotObjectBase for which the slot is a functor (or lambda)</span>
+<span id="L407"><span class="lineNum">     407</span>              :     // N is the number of arguments</span>
+<span id="L408"><span class="lineNum">     408</span>              :     // Args and R are the List of arguments and the return type of the signal to which the slot is connected.</span>
+<span id="L409"><span class="lineNum">     409</span>              :     template&lt;typename Func, int N, typename Args, typename R&gt; class QFunctorSlotObject : public QSlotObjectBase</span>
+<span id="L410"><span class="lineNum">     410</span>              :     {</span>
+<span id="L411"><span class="lineNum">     411</span>              :         typedef QtPrivate::Functor&lt;Func, N&gt; FuncType;</span>
+<span id="L412"><span class="lineNum">     412</span>              :         Func function;</span>
+<span id="L413"><span class="lineNum">     413</span>              :         static void impl(int which, QSlotObjectBase *this_, QObject *r, void **a, bool *ret)</span>
+<span id="L414"><span class="lineNum">     414</span>              :         {</span>
+<span id="L415"><span class="lineNum">     415</span>              :             switch (which) {</span>
+<span id="L416"><span class="lineNum">     416</span>              :             case Destroy:</span>
+<span id="L417"><span class="lineNum">     417</span>              :                 delete static_cast&lt;QFunctorSlotObject*&gt;(this_);</span>
+<span id="L418"><span class="lineNum">     418</span>              :                 break;</span>
+<span id="L419"><span class="lineNum">     419</span>              :             case Call:</span>
+<span id="L420"><span class="lineNum">     420</span>              :                 FuncType::template call&lt;Args, R&gt;(static_cast&lt;QFunctorSlotObject*&gt;(this_)-&gt;function, r, a);</span>
+<span id="L421"><span class="lineNum">     421</span>              :                 break;</span>
+<span id="L422"><span class="lineNum">     422</span>              :             case Compare: // not implemented</span>
+<span id="L423"><span class="lineNum">     423</span>              :             case NumOperations:</span>
+<span id="L424"><span class="lineNum">     424</span>              :                 Q_UNUSED(ret);</span>
+<span id="L425"><span class="lineNum">     425</span>              :             }</span>
+<span id="L426"><span class="lineNum">     426</span>              :         }</span>
+<span id="L427"><span class="lineNum">     427</span>              :     public:</span>
+<span id="L428"><span class="lineNum">     428</span>              :         explicit QFunctorSlotObject(Func f) : QSlotObjectBase(&amp;impl), function(std::move(f)) {}</span>
+<span id="L429"><span class="lineNum">     429</span>              :     };</span>
+<span id="L430"><span class="lineNum">     430</span>              : </span>
+<span id="L431"><span class="lineNum">     431</span>              :     // typedefs for readability for when there are no parameters</span>
+<span id="L432"><span class="lineNum">     432</span>              :     template &lt;typename Func&gt;</span>
+<span id="L433"><span class="lineNum">     433</span>              :     using QSlotObjectWithNoArgs = QSlotObject&lt;Func,</span>
+<span id="L434"><span class="lineNum">     434</span>              :                                               QtPrivate::List&lt;&gt;,</span>
+<span id="L435"><span class="lineNum">     435</span>              :                                               typename QtPrivate::FunctionPointer&lt;Func&gt;::ReturnType&gt;;</span>
+<span id="L436"><span class="lineNum">     436</span>              : </span>
+<span id="L437"><span class="lineNum">     437</span>              :     template &lt;typename Func, typename R&gt;</span>
+<span id="L438"><span class="lineNum">     438</span>              :     using QFunctorSlotObjectWithNoArgs = QFunctorSlotObject&lt;Func, 0, QtPrivate::List&lt;&gt;, R&gt;;</span>
+<span id="L439"><span class="lineNum">     439</span>              : </span>
+<span id="L440"><span class="lineNum">     440</span>              :     template &lt;typename Func&gt;</span>
+<span id="L441"><span class="lineNum">     441</span>              :     using QFunctorSlotObjectWithNoArgsImplicitReturn = QFunctorSlotObjectWithNoArgs&lt;Func, typename QtPrivate::FunctionPointer&lt;Func&gt;::ReturnType&gt;;</span>
+<span id="L442"><span class="lineNum">     442</span>              : }</span>
+<span id="L443"><span class="lineNum">     443</span>              : </span>
+<span id="L444"><span class="lineNum">     444</span>              : QT_END_NAMESPACE</span>
+<span id="L445"><span class="lineNum">     445</span>              : </span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

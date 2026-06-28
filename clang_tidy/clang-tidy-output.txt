@@ -1,0 +1,489 @@
+[1/2] Processing file /home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp.
+68392 warnings generated.
+[2/2] Processing file /home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp.
+111907 warnings generated.
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp:9:18: warning: variable name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+    9 |     QApplication a(argc, argv);
+      |                  ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp:16:13: warning: static member accessed through instance [readability-static-accessed-through-instance]
+   16 |             a.installTranslator(&translator);
+      |             ^~
+      |             QApplication::
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp:20:18: warning: variable name 'w' is too short, expected at least 3 characters [readability-identifier-length]
+   20 |     SudokuSolver w;
+      |                  ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp:22:12: warning: static member accessed through instance [readability-static-accessed-through-instance]
+   22 |     return a.exec();
+      |            ^~
+      |            QApplication::
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:23:20: warning: method 'isAllowed' can be made static [readability-convert-member-functions-to-static]
+   23 | bool SudokuSolver::isAllowed(vector<vector<int> > &sudoku, int x, int y, int val){
+      |                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:23:60: warning: 2 adjacent parameters of 'isAllowed' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   23 | bool SudokuSolver::isAllowed(vector<vector<int> > &sudoku, int x, int y, int val){
+      |                                                            ^~~~~~~~~~~~
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:23:64: note: the first parameter in the range is 'x'
+   23 | bool SudokuSolver::isAllowed(vector<vector<int> > &sudoku, int x, int y, int val){
+      |                                                                ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:23:71: note: the last parameter in the range is 'y'
+   23 | bool SudokuSolver::isAllowed(vector<vector<int> > &sudoku, int x, int y, int val){
+      |                                                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:23:64: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+   23 | bool SudokuSolver::isAllowed(vector<vector<int> > &sudoku, int x, int y, int val){
+      |                                                                ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:23:71: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+   23 | bool SudokuSolver::isAllowed(vector<vector<int> > &sudoku, int x, int y, int val){
+      |                                                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:25:20: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   25 |     for(int i=0; i<9; i++){
+      |                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:32:20: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   32 |     for(int i=0; i<9; i++){
+      |                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:39:9: warning: variable name 'xx' is too short, expected at least 3 characters [readability-identifier-length]
+   39 |     int xx = (x/3)*3;   // --> starting row index of current cell subgrid
+      |         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:40:9: warning: variable name 'yy' is too short, expected at least 3 characters [readability-identifier-length]
+   40 |     int yy = (y/3)*3;   // --> starting column index of current cell subgrid
+      |         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:53:66: warning: parameter name 'i' is too short, expected at least 3 characters [readability-identifier-length]
+   53 | bool SudokuSolver::solvesudoku(vector<vector<int> > &sudoku, int i, int j){
+      |                                                                  ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:53:73: warning: parameter name 'j' is too short, expected at least 3 characters [readability-identifier-length]
+   53 | bool SudokuSolver::solvesudoku(vector<vector<int> > &sudoku, int i, int j){
+      |                                                                         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:55:11: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   55 |     if(i==9){
+      |           ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:60:11: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   60 |     if(j==9){
+      |           ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:64:25: warning: statement should be inside braces [readability-braces-around-statements]
+   64 |     if(sudoku[i][j]==-1) return false;
+      |                         ^             
+      |                          {
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:71:25: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   71 |     for(int val=1; val<=9; val++){
+      |                         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:74:27: warning: implicit conversion 'bool' -> 'int' [readability-implicit-bool-conversion]
+   74 |             int success = solvesudoku(sudoku, i, j+1);  // returns if solution if possible the remaining sudoku with current val placed at (i, j)
+      |                           ^                          
+      |                           static_cast<int>(          )
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:75:16: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+   75 |             if(success){
+      |                ^      
+      |                        != 0
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:85:20: warning: function 'solveSudoku' has cognitive complexity of 34 (threshold 25) [readability-function-cognitive-complexity]
+   85 | void SudokuSolver::solveSudoku()
+      |                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:92:5: note: +1, including nesting penalty of 0, nesting level increased to 1
+   92 |     for (int i = 0; i < 9; ++i) {
+      |     ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:93:9: note: +2, including nesting penalty of 1, nesting level increased to 2
+   93 |         for (int j = 0; j < 9; ++j) {
+      |         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:96:13: note: +3, including nesting penalty of 2, nesting level increased to 3
+   96 |             if (lineEdit) {
+      |             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:101:17: note: +4, including nesting penalty of 3, nesting level increased to 4
+  101 |                 if (inputValue >= 1 && inputValue <= 9) {
+      |                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:101:37: note: +1
+  101 |                 if (inputValue >= 1 && inputValue <= 9) {
+      |                                     ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:103:19: note: +1, nesting level increased to 4
+  103 |                 } else{
+      |                   ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:106:15: note: +1, nesting level increased to 3
+  106 |             } else {
+      |               ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:115:5: note: +1, including nesting penalty of 0, nesting level increased to 1
+  115 |     for(int i=0; i<9; i++){
+      |     ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:116:9: note: +2, including nesting penalty of 1, nesting level increased to 2
+  116 |         for(int j=0; j<9; j++){
+      |         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:117:13: note: +3, including nesting penalty of 2, nesting level increased to 3
+  117 |             if(sudokuMatrix[i][j]!=0){
+      |             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:118:17: note: +4, including nesting penalty of 3, nesting level increased to 4
+  118 |                 if(!isAllowed(sudokuMatrix, i, j, sudokuMatrix[i][j])){
+      |                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:129:5: note: +1, including nesting penalty of 0, nesting level increased to 1
+  129 |     if (solution) {
+      |     ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:131:9: note: +2, including nesting penalty of 1, nesting level increased to 2
+  131 |         for (int i = 0; i < 9; ++i) {
+      |         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:132:13: note: +3, including nesting penalty of 2, nesting level increased to 3
+  132 |             for (int j = 0; j < 9; ++j) {
+      |             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:135:17: note: +4, including nesting penalty of 3, nesting level increased to 4
+  135 |                 if (lineEdit) {
+      |                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:140:7: note: +1, nesting level increased to 1
+  140 |     } else {
+      |       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:88:48: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   88 |     std::vector<std::vector<int>> sudokuMatrix(9, std::vector<int>(9, 0));
+      |                                                ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:88:68: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   88 |     std::vector<std::vector<int>> sudokuMatrix(9, std::vector<int>(9, 0));
+      |                                                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:92:25: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   92 |     for (int i = 0; i < 9; ++i) {
+      |                         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:93:29: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+   93 |         for (int j = 0; j < 9; ++j) {
+      |                             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:94:13: warning: use auto when initializing with a template cast to avoid duplicating the type name [modernize-use-auto]
+   94 |             QLineEdit *lineEdit = qobject_cast<QLineEdit *>(ui->gridLayout->itemAtPosition(i, j)->widget());
+      |             ^~~~~~~~~
+      |             auto
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:96:17: warning: implicit conversion 'QLineEdit *' -> 'bool' [readability-implicit-bool-conversion]
+   96 |             if (lineEdit) {
+      |                 ^       
+      |                          != nullptr
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:101:54: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  101 |                 if (inputValue >= 1 && inputValue <= 9) {
+      |                                                      ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:115:20: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  115 |     for(int i=0; i<9; i++){
+      |                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:116:24: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  116 |         for(int j=0; j<9; j++){
+      |                        ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:131:29: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  131 |         for (int i = 0; i < 9; ++i) {
+      |                             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:132:33: warning: 9 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  132 |             for (int j = 0; j < 9; ++j) {
+      |                                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:133:17: warning: use auto when initializing with a template cast to avoid duplicating the type name [modernize-use-auto]
+  133 |                 QLineEdit *lineEdit = qobject_cast<QLineEdit *>(ui->gridLayout->itemAtPosition(i, j)->widget());
+      |                 ^~~~~~~~~
+      |                 auto
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp:135:21: warning: implicit conversion 'QLineEdit *' -> 'bool' [readability-implicit-bool-conversion]
+  135 |                 if (lineEdit) {
+      |                     ^       
+      |                              != nullptr
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:14:5: warning: parameter name 'c' is too short, expected at least 3 characters [readability-identifier-length]
+   14 |     Q_OBJECT
+      |     ^
+/home/matic/Qt/6.2.2/gcc_64/include/QtCore/qtmetamacros.h:162:5: note: expanded from macro 'Q_OBJECT'
+  162 |     QT_TR_FUNCTIONS \
+      |     ^
+/home/matic/Qt/6.2.2/gcc_64/include/QtCore/qtmetamacros.h:121:57: note: expanded from macro 'QT_TR_FUNCTIONS'
+  121 |     static inline QString tr(const char *s, const char *c = nullptr, int n = -1) \
+      |                                                         ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:14:5: warning: parameter name 's' is too short, expected at least 3 characters [readability-identifier-length]
+   14 |     Q_OBJECT
+      |     ^
+/home/matic/Qt/6.2.2/gcc_64/include/QtCore/qtmetamacros.h:162:5: note: expanded from macro 'Q_OBJECT'
+  162 |     QT_TR_FUNCTIONS \
+      |     ^
+/home/matic/Qt/6.2.2/gcc_64/include/QtCore/qtmetamacros.h:121:42: note: expanded from macro 'QT_TR_FUNCTIONS'
+  121 |     static inline QString tr(const char *s, const char *c = nullptr, int n = -1) \
+      |                                          ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:18:5: warning: annotate this function with 'override' or (rarely) 'final' [modernize-use-override]
+   18 |     ~SudokuSolver();
+      |     ^              
+      |                     override
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:23:1: warning: redundant access specifier has the same accessibility as the previous access specifier [readability-redundant-access-specifiers]
+   23 | private:
+      | ^~~~~~~~
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:20:1: note: previously declared here
+   20 | private slots:
+      | ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:27:63: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+   27 |     bool isAllowed(std::vector<std::vector<int>> &sudoku, int x, int y, int val);
+      |                                                               ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:27:70: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+   27 |     bool isAllowed(std::vector<std::vector<int>> &sudoku, int x, int y, int val);
+      |                                                                      ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:28:65: warning: parameter name 'i' is too short, expected at least 3 characters [readability-identifier-length]
+   28 |     bool solvesudoku(std::vector<std::vector<int>> &sudoku, int i, int j);
+      |                                                                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h:28:72: warning: parameter name 'j' is too short, expected at least 3 characters [readability-identifier-length]
+   28 |     bool solvesudoku(std::vector<std::vector<int>> &sudoku, int i, int j);
+      |                                                                        ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:119:50: warning: statement should be inside braces [readability-braces-around-statements]
+  119 |         if (SudokuSolver->objectName().isEmpty())
+      |                                                  ^
+      |                                                   {
+  120 |             SudokuSolver->setObjectName(QString::fromUtf8("SudokuSolver"));
+      |                                                                            
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:121:30: warning: 800 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  121 |         SudokuSolver->resize(800, 600);
+      |                              ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:121:35: warning: 600 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  121 |         SudokuSolver->resize(800, 600);
+      |                                   ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:127:45: warning: 80 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  127 |         gridLayoutWidget->setGeometry(QRect(80, 100, 591, 311));
+      |                                             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:127:49: warning: 100 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  127 |         gridLayoutWidget->setGeometry(QRect(80, 100, 591, 311));
+      |                                                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:127:54: warning: 591 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  127 |         gridLayoutWidget->setGeometry(QRect(80, 100, 591, 311));
+      |                                                      ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:127:59: warning: 311 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  127 |         gridLayoutWidget->setGeometry(QRect(80, 100, 591, 311));
+      |                                                           ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:132:40: warning: 10 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  132 |         gridLayout->setVerticalSpacing(10);
+      |                                        ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:144:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  144 |         gridLayout->addWidget(b05, 0, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:150:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  150 |         gridLayout->addWidget(b17, 1, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:156:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  156 |         gridLayout->addWidget(b18, 1, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:162:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  162 |         gridLayout->addWidget(b51, 5, 1, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:168:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  168 |         gridLayout->addWidget(b86, 8, 6, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:168:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  168 |         gridLayout->addWidget(b86, 8, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:192:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  192 |         gridLayout->addWidget(b08, 0, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:198:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  198 |         gridLayout->addWidget(b80, 8, 0, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:216:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  216 |         gridLayout->addWidget(b16, 1, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:222:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  222 |         gridLayout->addWidget(b71, 7, 1, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:234:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  234 |         gridLayout->addWidget(b38, 3, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:246:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  246 |         gridLayout->addWidget(b75, 7, 5, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:246:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  246 |         gridLayout->addWidget(b75, 7, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:258:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  258 |         gridLayout->addWidget(b77, 7, 7, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:258:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  258 |         gridLayout->addWidget(b77, 7, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:264:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  264 |         gridLayout->addWidget(b50, 5, 0, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:270:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  270 |         gridLayout->addWidget(b74, 7, 4, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:276:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  276 |         gridLayout->addWidget(b36, 3, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:288:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  288 |         gridLayout->addWidget(b26, 2, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:294:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  294 |         gridLayout->addWidget(b67, 6, 7, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:294:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  294 |         gridLayout->addWidget(b67, 6, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:300:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  300 |         gridLayout->addWidget(b72, 7, 2, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:312:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  312 |         gridLayout->addWidget(b82, 8, 2, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:318:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  318 |         gridLayout->addWidget(b87, 8, 7, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:318:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  318 |         gridLayout->addWidget(b87, 8, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:324:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  324 |         gridLayout->addWidget(b83, 8, 3, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:330:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  330 |         gridLayout->addWidget(b37, 3, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:336:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  336 |         gridLayout->addWidget(b28, 2, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:342:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  342 |         gridLayout->addWidget(b64, 6, 4, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:348:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  348 |         gridLayout->addWidget(b70, 7, 0, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:360:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  360 |         gridLayout->addWidget(b45, 4, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:372:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  372 |         gridLayout->addWidget(b53, 5, 3, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:378:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  378 |         gridLayout->addWidget(b63, 6, 3, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:384:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  384 |         gridLayout->addWidget(b07, 0, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:390:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  390 |         gridLayout->addWidget(b88, 8, 8, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:390:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  390 |         gridLayout->addWidget(b88, 8, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:396:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  396 |         gridLayout->addWidget(b48, 4, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:402:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  402 |         gridLayout->addWidget(b57, 5, 7, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:402:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  402 |         gridLayout->addWidget(b57, 5, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:408:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  408 |         gridLayout->addWidget(b56, 5, 6, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:408:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  408 |         gridLayout->addWidget(b56, 5, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:420:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  420 |         gridLayout->addWidget(b81, 8, 1, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:426:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  426 |         gridLayout->addWidget(b85, 8, 5, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:426:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  426 |         gridLayout->addWidget(b85, 8, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:432:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  432 |         gridLayout->addWidget(b46, 4, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:438:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  438 |         gridLayout->addWidget(b61, 6, 1, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:457:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  457 |         gridLayout->addWidget(b78, 7, 8, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:457:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  457 |         gridLayout->addWidget(b78, 7, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:463:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  463 |         gridLayout->addWidget(b47, 4, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:469:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  469 |         gridLayout->addWidget(b60, 6, 0, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:481:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  481 |         gridLayout->addWidget(b58, 5, 8, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:481:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  481 |         gridLayout->addWidget(b58, 5, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:487:36: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  487 |         gridLayout->addWidget(b84, 8, 4, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:493:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  493 |         gridLayout->addWidget(b66, 6, 6, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:493:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  493 |         gridLayout->addWidget(b66, 6, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:511:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  511 |         gridLayout->addWidget(b06, 0, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:517:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  517 |         gridLayout->addWidget(b62, 6, 2, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:535:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  535 |         gridLayout->addWidget(b73, 7, 3, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:541:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  541 |         gridLayout->addWidget(b54, 5, 4, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:553:39: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  553 |         gridLayout->addWidget(b27, 2, 7, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:565:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  565 |         gridLayout->addWidget(b65, 6, 5, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:565:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  565 |         gridLayout->addWidget(b65, 6, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:577:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  577 |         gridLayout->addWidget(b15, 1, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:583:36: warning: 7 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  583 |         gridLayout->addWidget(b76, 7, 6, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:583:39: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  583 |         gridLayout->addWidget(b76, 7, 6, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:589:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  589 |         gridLayout->addWidget(b52, 5, 2, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:595:36: warning: 6 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  595 |         gridLayout->addWidget(b68, 6, 8, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:595:39: warning: 8 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  595 |         gridLayout->addWidget(b68, 6, 8, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:601:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  601 |         gridLayout->addWidget(b35, 3, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:613:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  613 |         gridLayout->addWidget(b25, 2, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:619:36: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  619 |         gridLayout->addWidget(b55, 5, 5, 1, 1);
+      |                                    ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:619:39: warning: 5 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  619 |         gridLayout->addWidget(b55, 5, 5, 1, 1);
+      |                                       ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:623:35: warning: 310 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  623 |         button->setGeometry(QRect(310, 430, 93, 28));
+      |                                   ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:623:40: warning: 430 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  623 |         button->setGeometry(QRect(310, 430, 93, 28));
+      |                                        ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:623:45: warning: 93 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  623 |         button->setGeometry(QRect(310, 430, 93, 28));
+      |                                             ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:623:49: warning: 28 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  623 |         button->setGeometry(QRect(310, 430, 93, 28));
+      |                                                 ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:626:42: warning: 150 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  626 |         plainTextEdit->setGeometry(QRect(150, 20, 451, 51));
+      |                                          ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:626:47: warning: 20 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  626 |         plainTextEdit->setGeometry(QRect(150, 20, 451, 51));
+      |                                               ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:626:51: warning: 451 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  626 |         plainTextEdit->setGeometry(QRect(150, 20, 451, 51));
+      |                                                   ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:626:56: warning: 51 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  626 |         plainTextEdit->setGeometry(QRect(150, 20, 451, 51));
+      |                                                        ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:630:42: warning: 800 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  630 |         menubar->setGeometry(QRect(0, 0, 800, 22));
+      |                                          ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:630:47: warning: 22 is a magic number; consider replacing it with a named constant [readability-magic-numbers]
+  630 |         menubar->setGeometry(QRect(0, 0, 800, 22));
+      |                                               ^
+/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/ui_sudokusolver.h:641:10: warning: method 'retranslateUi' can be made const [readability-make-member-function-const]
+  641 |     void retranslateUi(QMainWindow *SudokuSolver)
+      |          ^                                       
+      |                                                   const
+Suppressed 111766 warnings (111766 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+finished clang-tidy

@@ -48,7 +48,7 @@ Na slici ispod prikazan je HTML izveštaj alata `lcov`.
 
 Visoka pokrivenost linija pokazuje da su testovi izvršili najveći deo algoritamskog koda. Funkcijska pokrivenost je niža jer nije pokrivena UI funkcija `solveSudoku()`, koja predstavlja Qt slot povezan sa korisničkim interfejsom.
 
-## Statička analiza
+## Statička analiza pomoću cppcheck alata
 
 Za statičku analizu C++ koda korišćen je alat **cppcheck**. Analizitrani su ručno pisani fajlovi projekta:
 
@@ -108,3 +108,50 @@ style: Class 'SudokuSolver' has a constructor with 1 argument that is not explic
 Alat predlaže da konstruktor bude označen ključnom rečju `explicit`.
 
 Ovo upozorenje ne predstavlja funckionalnu grešku u progeamu, već preporuku za bolji C++ stil.
+
+
+## Statička analiza pomoću alata clang-tidy
+
+Clang-Tidy predstavlja jedan od Clang zasnovanih alata koji obavlja statičku analizu koda (vrši analiziranje izvornog koda bez njegovog izvršavanja sa ciljem pronalaženja grešaka, poboljšanja kvaliteta koda i ispravljanja neoptimalno napisanih delova koda).
+
+Za analizu su uključene grupe provera:
+
+```text
+bugprone-*
+performance-*
+readability-*
+modernize-*
+```
+
+Skripta za pokretanje se nalazi u direktorijumu `clang_tidy`.
+
+```bash
+./clang_tidy/run_tidy.sh
+```
+
+Na slici ispod prikazan je deo rezultata alata `clang-tidy`, dok se u fajlu `clang-tidy-output.txt` nalazi celokupni izveštaj alata.
+
+![Clang-Tidy rezultat](images/clang_tidy.png)
+
+Clang-tidy je prijavio više upozorenja, od kojih su najznačajnija sledeća:
+
+| Fajl | Nalaz |
+|---|---|
+|`sudokusolver.cpp` | `isAllowed` može biti `static` |
+|`sudokusolver.cpp` | Implicitna koncerzija `bool->int->bool` |
+|`sudokusolver.cpp` | `solveSudoku()` ima kongitivnu kompleksnost 34 |
+|`sudokusolver.h` | Destruktor može biti označen sa `override` |
+
+Primer ya implicitnu konverziju:
+
+```cpp
+int success = solvesudoku(sudoku, i, j+1); 
+if(success){
+  return true;
+}
+```
+Bolje bi bilo da se koristi bool umesto int-a.
+
+Zbog velike kompleksnosti solveSudoku() funkcije od 34, a prag je 25 bilo bi dobro da se razdvoji na više funkcija, pogotovo spojnost gui i logike u toj funkciji.
+
+Alat je prijavio i veliki broj upozorenja iz Qt generisanog fajla `ui_sudokusolver.h`. Ti nalazi nisu analizirani detaljno, jer taj fajl nije ručno pisan, vec generisan od strange Qt-a.

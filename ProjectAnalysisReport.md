@@ -155,3 +155,73 @@ Bolje bi bilo da se koristi bool umesto int-a.
 Zbog velike kompleksnosti solveSudoku() funkcije od 34, a prag je 25 bilo bi dobro da se razdvoji na više funkcija, pogotovo spojnost gui i logike u toj funkciji.
 
 Alat je prijavio i veliki broj upozorenja iz Qt generisanog fajla `ui_sudokusolver.h`. Ti nalazi nisu analizirani detaljno, jer taj fajl nije ručno pisan, vec generisan od strange Qt-a.
+
+
+## Dinamička analiza memorije pomoću Valgrind Memcheck
+
+
+Memcheck je alat koji se prilikom korišćenja Valgrind-a podrazumevano poziva. Koristi se za detektovanje memorijskih grešaka i sprovođenja analize nad mašinskim kodom. Upotrebom Memcheck-a mogu se otkriti različite vrste problema, kao što su curenja memorije, pristup ili upisivanje vrednosti van opsega, korišćenje neinicijalizovanih vrednosti, pristup već oslobođenoj memoriji.
+
+Pošto Valgrind analizira program tokom izvršavanja, alat je pokrenut nad binarnim fajlom QtTest testova. Na taj način se automatski izvršava algoritamski deo aplikacije bez interakcije sa GUI-jem.
+
+Dodatne opcije koje su korišćene prilikom analize:
+- *--show-lead-kinds=all* : prikazuje sve vrse curenja memorije u programu
+- *--leak-check=full* : daje informacije o svim definitivno izgubljenim ili eventualno izgubljenim blokovima, uključujući i informacije o njihovoj alokaciji
+- *--tack-origins=yes* : omogućava lakše pronalaženje dela programa u kom se nalazi memoriski propust (može usporiti rad alata)
+- *--log-file="report-memcheck.txt"* : rezultati analize će biti upisani u *report-memcheck.txt* fajl
+
+Analiza je pokrenuta skriptom:
+
+```bash
+./valgrind/run_valgrind.sh
+```
+
+Skripta prvo pokreće izgradnju i izvršavanje unit testova, a zatim pokreće testni binarni fajl kroz Valgrind:
+
+
+```bash
+valgrind \
+  --tool=memcheck \
+  --leak-check=full \
+  --show-leak-kinds=all \
+  --track-origins=yes \
+  --log-file="$OUTPUT_FILE" \
+  "$ROOT_DIR/unit_tests/build/SolverUnitTests"
+```
+
+Na slici ispod je prikazan deo Valgrind izveštaja:
+
+![Valgrind izveštaj](images/valgrind.png)
+
+### Rezultat analize
+
+Valgrind je prijavio sledeći sažetak:
+
+```text
+==50321==    definitely lost: 1,776 bytes in 17 blocks
+==50321==    indirectly lost: 1,414 bytes in 8 blocks
+==50321==      possibly lost: 1,760 bytes in 5 blocks
+==50321==    still reachable: 2,045,647 bytes in 20,321 blocks
+==50321==                       of which reachable via heuristic:
+==50321==                         newarray           : 760 bytes in 5 blocks
+==50321==         suppressed: 0 bytes in 0 blocks
+==50321== 
+==50321== For lists of detected and suppressed errors, rerun with: -s
+==50321== ERROR SUMMARY: 21 errors from 21 contexts (suppressed: 0 from 0)
+```
+
+Analizom stack trace-a utvrđeno je da prijavljena curenja memorije ne ptiču iz ručno pisanog Sudoku koda, već iz Qt/Wayland/GTK biblioteka koje se inicijalizuju pri pokretanju Qt aplikacije/testova. To možemo videti na slici iznad. U stack trace-u se ne pojavljuju funkcije iz algoritamskog dela projekta, kao što su:
+
+```text
+isAllowed
+solvesudoku
+```
+
+Zbog toga ovi nalazi nisu interpretirani kao direktne memorijske greške u analiziranom Sudoku algoritmu.
+
+
+### Ograničenje analize
+
+Valgrind analiza je pokrenuta nad testnim binarnim fajlom, pa pokriva deo koda koji se izvršava kroz unit testove. GUI slot `solveSudoku()` nije analiziran, jer bi to zahtevalo pokretanje cele Qt aplikacije, unos podataka kroz GUI i interakciju sa dugmetom.
+
+Ovo ograničenje je posldica dizajna projekta: algoritamska logika i GUI logika nalaze se u istoj klasi sudokuSolver, što otežava odvojeno testiranje i dinamičku analizu GUI dela.

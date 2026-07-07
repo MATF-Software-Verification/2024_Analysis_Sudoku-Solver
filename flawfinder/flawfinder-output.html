@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf8">
+<title>Flawfinder Results</title>
+<meta name="author" content="David A. Wheeler">
+<meta name="keywords" lang="en" content="flawfinder results, security scan">
+</head>
+<body>
+<h1>Flawfinder Results</h1>
+Here are the security scan results from
+<a href="https://dwheeler.com/flawfinder">Flawfinder version 2.0.19</a>,
+(C) 2001-2019 <a href="https://dwheeler.com">David A. Wheeler</a>.
+Number of rules (primarily dangerous function names) in C/C++ ruleset: 222
+<p>
+Examining /home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp <br>
+Examining /home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.cpp <br>
+Examining /home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/sudokusolver.h <br>
+
+<h2>Final Results</h2>
+<ul>
+<li>/home/matic/Documents/Master 2. godina/VS/AnalizaProjekta/2024_Analysis_Sudoku-Solver/external/Sudoku-Solver/main.cpp:12: <b>  [4] </b> (shell) <i> system:
+  This causes a new program to execute and is difficult to use safely (<a
+  href="https://cwe.mitre.org/data/definitions/78.html">CWE-78</a>). try
+  using a library call that implements the same functionality if available. </i>
+</ul>
+<h2>Analysis Summary</h2>
+<p>
+Hits = 1
+<br>
+Lines analyzed = 202 in approximately 0.01 seconds (13733 lines/second)
+<br>
+Physical Source Lines of Code (SLOC) = 150
+<br>
+Hits@level = [0]   0 [1]   0 [2]   0 [3]   0 [4]   1 [5]   0 <br>
+Hits@level+ = [0+]   1 [1+]   1 [2+]   1 [3+]   1 [4+]   1 [5+]   0 <br>
+Hits/KSLOC@level+ = [0+] 6.66667 [1+] 6.66667 [2+] 6.66667 [3+] 6.66667 [4+] 6.66667 [5+]   0 <br>
+Minimum risk level = 1
+<br>
+Not every hit is necessarily a security vulnerability.
+You can inhibit a report by adding a comment in this form:
+// flawfinder: ignore
+Make *sure* it's a false positive!
+You can use the option --neverignore to show these.
+<br>
+There may be other security vulnerabilities; review your code!
+<br>
+See '<a href="https://dwheeler.com/secure-programs">Secure Programming HOWTO</a>'
+(<a href="https://dwheeler.com/secure-programs">https://dwheeler.com/secure-programs</a>) for more information.
+</body>
+</html>
+finished flawfinder

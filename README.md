@@ -12,9 +12,11 @@
 * Clang-Tidy
 * Valgrind - Memcheck
 * Lizard
+* Flawfinder
 
 # 📝 Zaključak:
 
+Najvažniji rezultat testiranja je pronalazak logičke greške u funkciji `isAllowed()`. Funkcija proverava da li se određeni broj već nalazi u redu, koloni ili 3x3 bloku, ali ne ignoriše trenutno polje koje se proverava. Zbog toga validan broj može biti pogrešno označen kao neispravan. Pored toga nema većih propusta koji mogu znatno uticati na funkcionalnost, ali ima prostora za napredak, na primer refaktorizacija funkcije `sudokuSolver()` zbog povezanosti GUI-ja i dela logike.
 
 # Autor:
 

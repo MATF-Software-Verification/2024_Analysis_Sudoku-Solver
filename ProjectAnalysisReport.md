@@ -249,3 +249,38 @@ Zatim CCN je takodje veći od ostalih, a to ukazuje na broj nezavisnih puteva iz
 ### Zaključak
 
 Lizard nije pronasao funkcije koje prelaze podrazumevane pragove kompleksnosti, ali je jasno da je `solveSudoku` najkompleksnija funkcija u projektu, što smo i potvrdili ranije nalaze iz `clang-tidy` za povećanu kognitivnu kompleksnost funkcije.
+
+
+## Bezbednosna analiza pomoću alata Flawfinder
+
+Za osnovnu bezbednosnu analizu C++ koda korišćen je alat **FlawFinder**. Ovaj alat pretražuje izvorni kod i pronalazi korišćenje potencijalno rizičnih funkcija i obrazaca.
+
+Analiza je pokrenuta skriptom:
+```bash
+./flawfinder/run_flawfinder.sh
+```
+
+Na slici ispod prikazan je rezultat FlawFinder analize.
+
+![Flawfinder rezultat](images/flawfinder.png)
+
+### Rezultat analize
+
+Alat je pronašao jedan nalaz:
+```text
+main.cpp:12: [4] (shell) system: This causes a new program to execute and is difficult to use safely (CWE-78)
+```
+
+Ukupan rezultat analize:
+```text
+Hits = 1
+Risk level 4
+```
+
+FlawFinder je prijavio problem zbog korišćenja funkcije `system()`. Ta funkcija izvršava komandu preko shell-a, što može biti beznednosni rizik ako komanda sadrži korisnički unos. To može dovesti do ranjivosti tipa **CWE-78: OS Command Injection**.
+
+Međutim, ovde se radi o Qt metodi QLocal::system(), koja samo vraća sistemski jezik. Ne izvršava shell komandu.
+
+### Zaključak
+
+Flawfinder je prijavio jedan potencijalni nalaz, ali je ručnom analizom utvrđeno da je u pitanju false positive.

@@ -11,6 +11,7 @@
 * Cppcheck
 * Clang-Tidy
 * Valgrind - Memcheck
+* Lizard
 
 # 📝 Zaključak:
 

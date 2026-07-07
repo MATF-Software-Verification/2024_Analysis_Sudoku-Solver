@@ -225,3 +225,27 @@ Zbog toga ovi nalazi nisu interpretirani kao direktne memorijske greške u anali
 Valgrind analiza je pokrenuta nad testnim binarnim fajlom, pa pokriva deo koda koji se izvršava kroz unit testove. GUI slot `solveSudoku()` nije analiziran, jer bi to zahtevalo pokretanje cele Qt aplikacije, unos podataka kroz GUI i interakciju sa dugmetom.
 
 Ovo ograničenje je posldica dizajna projekta: algoritamska logika i GUI logika nalaze se u istoj klasi sudokuSolver, što otežava odvojeno testiranje i dinamičku analizu GUI dela.
+
+# Analiza kompleksnosti pomoći alata Lizard
+
+Za analizu kompleksnosti korišćen je alat **Lizard**. Ovaj alat meri metrike kao što su broj linija koda funkcije, ciklomatska kompleksnost, broj tokena i broj parametara.
+
+Analiza je pokrenuta skriptom:
+
+```bash
+./lizard/run_lizard.sh
+```
+
+Na slici ispod je prikazan rezultat alata:
+
+![Lizard rezultat](images/lizard.png)
+
+## Rezultat analize
+
+Alat nije prijavio prekoračenje podrazumevanih pragova. Međutim, funkcija `SudokuSolver::solveSudoku()` ima drastično veće vrednosti posmatranih metrika. Broj efektivnih linija koda (bez komentara i praznih linija, NLOC) je duplo veći od ostalih logičkih funkcija. 
+
+Zatim CCN je takodje veći od ostalih, a to ukazuje na broj nezavisnih puteva izvršavanja kroz funkciju. Razloh je to što ova funkcija obavlja više različitih zadataka: čita podatke iz GUI-ja, validira ulaz, pokreće solver i upisuje rezultat nazad u korisnički interfejs.
+
+### Zaključak
+
+Lizard nije pronasao funkcije koje prelaze podrazumevane pragove kompleksnosti, ali je jasno da je `solveSudoku` najkompleksnija funkcija u projektu, što smo i potvrdili ranije nalaze iz `clang-tidy` za povećanu kognitivnu kompleksnost funkcije.

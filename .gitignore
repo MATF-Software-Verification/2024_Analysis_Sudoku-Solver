@@ -1,0 +1,20 @@
+# Build outputs
+unit_tests/build/
+build/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.exe
+*.out
+
+# Coverage outputs
+unit_tests/coverage_html/
+*.gcda
+*.gcno
+*.gcov
+*.info
+
+.cache/
